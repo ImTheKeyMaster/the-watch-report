@@ -21,7 +21,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install feedparser requests newspaper3k
+          pip install --no-cache-dir feedparser requests newspaper3k
+          pip show newspaper3k || (echo "newspaper3k failed to install!" && exit 1)
+          pip list
 
       - name: Run fetch script
         run: python scripts/fetch_news.py
