@@ -24,7 +24,6 @@
           return;
         }
 
-        // List of YouTube sources
         const youtubeSources = [
           "Teddy Baldassarre",
           "Jenni Elle",
@@ -34,17 +33,18 @@
           "Horological Society of New York"
         ];
 
-        // Top story (first one)
+        // Top story
         const topStory = news[0];
         const topIsYouTube = youtubeSources.includes(topStory.source);
-
         const topCard = document.createElement('div');
         topCard.className = 'news-card top-story';
+
         const topThumbnail = topStory.thumbnail ? `<img src="${topStory.thumbnail}" alt="${topStory.title}"/>` : '';
         topCard.innerHTML = `
           ${topThumbnail}
           <h2>${topStory.title}</h2>
-          <p><strong>Source:</strong> ${topStory.source}</p>
+          <a href="${topStory.link}" target="_blank">${topIsYouTube ? "Watch Video" : "Read more"}</a>
+          <hr>
         `;
         container.appendChild(topCard);
 
@@ -57,8 +57,8 @@
           card.innerHTML = `
             ${thumbnail}
             <h2>${item.title}</h2>
-            <p><strong>Source:</strong> ${item.source}</p>
             <a href="${item.link}" target="_blank">${isYouTube ? "Watch Video" : "Read more"}</a>
+            <hr>
           `;
           container.appendChild(card);
         });
