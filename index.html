@@ -33,6 +33,15 @@
           "Horological Society of New York"
         ];
 
+        const formatDate = (isoString) => {
+          const date = new Date(isoString);
+          return date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          });
+        };
+
         const createCard = (item, isTop = false) => {
           const isYouTube = youtubeSources.includes(item.source);
           const card = document.createElement('div');
@@ -42,11 +51,14 @@
             ? `<a href="${item.link}" target="_blank"><img src="${item.thumbnail}" alt="${item.title}"/></a>`
             : '';
 
+          const titleText = isYouTube ? `${item.title} (Watch)` : item.title;
+          const formattedDate = formatDate(item.published);
+          const sourceWithDate = `${item.source} | ${formattedDate}`;
+
           card.innerHTML = `
             ${thumbnail}
-            <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
-            <p>${item.source}</p>
-            <a href="${item.link}" target="_blank">${isYouTube ? "Watch Video" : "Read more"}</a>
+            <h2><a href="${item.link}" target="_blank">${titleText}</a></h2>
+            <p>${sourceWithDate}</p>
             <hr>
           `;
           return card;
