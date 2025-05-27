@@ -63,6 +63,7 @@ for url in rss_feeds:
 # Process YouTube RSS feeds
 for url in youtube_feeds:
     feed = feedparser.parse(url)
+    print(f"Fetched {len(feed.entries)} entries from {url}")
     for entry in feed.entries:
         title = entry.title
         link = entry.link
