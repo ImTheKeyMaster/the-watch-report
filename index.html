@@ -33,37 +33,33 @@
           "Horological Society of New York"
         ];
 
-        // Top story
-        const topStory = news[0];
-        const topIsYouTube = youtubeSources.includes(topStory.source);
-        const topCard = document.createElement('div');
-        topCard.className = 'news-card top-story';
-
-        const topThumbnail = topStory.thumbnail ? `<img src="${topStory.thumbnail}" alt="${topStory.title}"/>` : '';
-        topCard.innerHTML = `
-          ${topThumbnail}
-          <h2>${topStory.title}</h2>
-          <p>${topStory.source}</p>
-          <a href="${topStory.link}" target="_blank">${topIsYouTube ? "Watch Video" : "Read more"}</a>
-          <hr>
-        `;
-        container.appendChild(topCard);
-
-        // Remaining stories
-        news.slice(1).forEach(item => {
+        const createCard = (item, isTop = false) => {
           const isYouTube = youtubeSources.includes(item.source);
           const card = document.createElement('div');
-          card.className = 'news-card';
-          const thumbnail = item.thumbnail ? `<img src="${item.thumbnail}" alt="${item.title}"/>` : '';
+          card.className = isTop ? 'news-card top-story' : 'news-card';
+
+          const thumbnail = item.thumbnail
+            ? `<a href="${item.link}" target="_blank"><img src="${item.thumbnail}" alt="${item.title}"/></a>`
+            : '';
+
           card.innerHTML = `
             ${thumbnail}
-            <h2>${item.title}</h2>
+            <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
             <p>${item.source}</p>
             <a href="${item.link}" target="_blank">${isYouTube ? "Watch Video" : "Read more"}</a>
             <hr>
           `;
-          container.appendChild(card);
+          return card;
+        };
+
+        // Top story
+        container.appendChild(createCard(news[0], true));
+
+        // Remaining stories
+        news.slice(1).forEach(item => {
+          container.appendChild(createCard(item));
         });
+
       } catch (error) {
         console.error("Error loading news:", error);
         document.getElementById('news-container').innerHTML = '<p>Unable to load news.</p>';
