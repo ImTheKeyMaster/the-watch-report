@@ -31,9 +31,10 @@ a:hover {
 }
 
 img {
-  max-width: 100%;
+  max-width: 275px;
   height: auto;
   margin-top: 10px;
+  display: block;
 }
 
 .article {
