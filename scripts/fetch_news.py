@@ -1,6 +1,6 @@
+from datetime import datetime, timezone
 import feedparser
 import json
-import datetime
 from bs4 import BeautifulSoup
 import requests
 import os
