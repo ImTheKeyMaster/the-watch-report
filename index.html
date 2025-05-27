@@ -4,22 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Watch Report</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>The Watch Report</h1>
-    <p>Your Daily Dose of Horological Headlines</p>
-  </header>
+  <h1>The Watch Report</h1>
 
-  <main id="news">
-    <p>Loading news...</p>
-  </main>
+  <div id="main-story"></div>
+  <hr />
+  <div id="other-stories"></div>
 
-  <footer>
-    <p>Updated automatically by AI. Powered by OpenAI & GitHub Actions.</p>
-  </footer>
+  <script>
+    fetch('data/news.json')
+      .then(response => response.json())
+      .then(data => {
+        const mainContainer = document.getElementById('main-story');
+        const othersContainer = document.getElementById('other-stories');
 
-  <script src="script.js"></script>
+        if (data.length === 0) {
+          mainContainer.innerHTML = '<p>No news articles found.</p>';
+          return;
+        }
+
+        const top = data[0];
+
+        mainContainer.innerHTML = `
+          <h2><a href="${top.link}" target="_blank">${top.title}</a></h2>
+          ${top.thumbnail ? `<img src="${top.thumbnail}" alt="Top story image">` : ''}
+          <p class="source"><strong>${top.source}</strong> — ${new Date(top.published).toLocaleDateString()}</p>
+        `;
+
+        for (let i = 1; i < data.length; i++) {
+          const article = data[i];
+          othersContainer.innerHTML += `
+            <div class="article">
+              <h3><a href="${article.link}" target="_blank">${article.title}</a></h3>
+              ${article.thumbnail ? `<img src="${article.thumbnail}" alt="Thumbnail">` : ''}
+              <p class="source"><strong>${article.source}</strong> — ${new Date(article.published).toLocaleDateString()}</p>
+              <a href="${article.link}" target="_blank" class="read-more">Read More</a>
+            </div>
+          `;
+        }
+      })
+      .catch(error => {
+        console.error('Error loading news:', error);
+        document.getElementById('main-story').innerHTML = '<p>Unable to load news.</p>';
+      });
+  </script>
 </body>
 </html>
+
