@@ -1,6 +1,8 @@
 import feedparser
 import json
 import os
+import nltk
+nltk.download('punkt')
 from datetime import datetime, timezone
 from newspaper import Article, Config
 from slugify import slugify
