@@ -51,7 +51,7 @@
             ? `<a href="${item.link}" target="_blank"><img src="${item.thumbnail}" alt="${item.title}"/></a>`
             : '';
 
-          const titleText = isYouTube ? `${item.title} (Watch)` : item.title;
+          const titleText = isYouTube ? `(VIDEO) ${item.title}` : item.title;
           const formattedDate = formatDate(item.published);
           const sourceWithDate = `${item.source} | ${formattedDate}`;
 
