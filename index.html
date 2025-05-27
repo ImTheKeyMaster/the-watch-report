@@ -4,52 +4,71 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Watch Report</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>The Watch Report</h1>
-
-  <div id="main-story"></div>
-  <hr />
-  <div id="other-stories"></div>
+  <div class="container">
+    <h1>The Watch Report</h1>
+    <div id="news-container" class="news-grid"></div>
+  </div>
 
   <script>
-    fetch('data/news.json')
-      .then(response => response.json())
-      .then(data => {
-        const mainContainer = document.getElementById('main-story');
-        const othersContainer = document.getElementById('other-stories');
+    async function loadNews() {
+      try {
+        const response = await fetch('data/news.json');
+        const news = await response.json();
+        const container = document.getElementById('news-container');
 
-        if (data.length === 0) {
-          mainContainer.innerHTML = '<p>No news articles found.</p>';
+        if (news.length === 0) {
+          container.innerHTML = '<p>No news articles found.</p>';
           return;
         }
 
-        const top = data[0];
+        // List of YouTube sources
+        const youtubeSources = [
+          "Teddy Baldassarre",
+          "Jenni Elle",
+          "Nico Leonard",
+          "The Time Teller",
+          "Andrew Morgan",
+          "Horological Society of New York"
+        ];
 
-        mainContainer.innerHTML = `
-          <h2><a href="${top.link}" target="_blank">${top.title}</a></h2>
-          ${top.thumbnail ? `<img src="${top.thumbnail}" alt="Top story image">` : ''}
-          <p class="source"><strong>${top.source}</strong> — ${new Date(top.published).toLocaleDateString()}</p>
+        // Top story (first one)
+        const topStory = news[0];
+        const topIsYouTube = youtubeSources.includes(topStory.source);
+
+        const topCard = document.createElement('div');
+        topCard.className = 'news-card top-story';
+        const topThumbnail = topStory.thumbnail ? `<img src="${topStory.thumbnail}" alt="${topStory.title}"/>` : '';
+        topCard.innerHTML = `
+          ${topThumbnail}
+          <h2>${topStory.title}</h2>
+          <p><strong>Source:</strong> ${topStory.source}</p>
         `;
+        container.appendChild(topCard);
 
-        for (let i = 1; i < data.length; i++) {
-          const article = data[i];
-          othersContainer.innerHTML += `
-            <div class="article">
-              <h3><a href="${article.link}" target="_blank">${article.title}</a></h3>
-              ${article.thumbnail ? `<img src="${article.thumbnail}" alt="Thumbnail">` : ''}
-              <p class="source"><strong>${article.source}</strong> — ${new Date(article.published).toLocaleDateString()}</p>
-              <a href="${article.link}" target="_blank" class="read-more">Read More</a>
-            </div>
+        // Remaining stories
+        news.slice(1).forEach(item => {
+          const isYouTube = youtubeSources.includes(item.source);
+          const card = document.createElement('div');
+          card.className = 'news-card';
+          const thumbnail = item.thumbnail ? `<img src="${item.thumbnail}" alt="${item.title}"/>` : '';
+          card.innerHTML = `
+            ${thumbnail}
+            <h2>${item.title}</h2>
+            <p><strong>Source:</strong> ${item.source}</p>
+            <a href="${item.link}" target="_blank">${isYouTube ? "Watch Video" : "Read more"}</a>
           `;
-        }
-      })
-      .catch(error => {
-        console.error('Error loading news:', error);
-        document.getElementById('main-story').innerHTML = '<p>Unable to load news.</p>';
-      });
+          container.appendChild(card);
+        });
+      } catch (error) {
+        console.error("Error loading news:", error);
+        document.getElementById('news-container').innerHTML = '<p>Unable to load news.</p>';
+      }
+    }
+
+    loadNews();
   </script>
 </body>
 </html>
-
