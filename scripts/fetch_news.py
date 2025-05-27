@@ -18,12 +18,12 @@ rss_feeds = [
 
 # YouTube channel RSS feeds
 youtube_feeds = [
-    "https://www.youtube.com/feeds/videos.xml?channel_id=UCp8M8IFaC6bjY5h3WDtHTaQ",  # Teddy Baldassarre
-    "https://www.youtube.com/feeds/videos.xml?channel_id=UC_wWGvT2ot2I4V8ADqdbR-w",  # Jenni Elle
-    "https://www.youtube.com/feeds/videos.xml?channel_id=UCk4z2uN4BFlF0U4uIUXwq3w",  # Nico Leonard
-    "https://www.youtube.com/feeds/videos.xml?channel_id=UCOpnj96gJqFHiyXBNz8ZpwA",  # The Time Teller
-    "https://www.youtube.com/feeds/videos.xml?channel_id=UCCaRjME-9QwGeq8vVNYG7og",  # Andrew Morgan
-    "https://www.youtube.com/feeds/videos.xml?channel_id=UCMcwrlH82Gr2gFh_vyHD6_w"   # Horological Society of New York
+    "https://www.youtube.com/feeds/videos.xml?channel_id=UCPsgQZxEACESR0ogWm0dUFw",  # Teddy Baldassarre
+    "https://www.youtube.com/feeds/videos.xml?channel_id=UCvIIb5YF8sUnm1D62jCvVVw",  # Jenni Elle
+    "https://www.youtube.com/feeds/videos.xml?channel_id=UC-IVpEe1GQYclVEGLgPd82Q",  # Nico Leonard
+    "https://www.youtube.com/feeds/videos.xml?channel_id=UCt4id9K_t9zu-O23182P4vQ",  # The Time Teller
+    "https://www.youtube.com/feeds/videos.xml?channel_id=UCOu5VKZIHDXS-cHn9TOC0Qg",  # Andrew Morgan
+    "https://www.youtube.com/feeds/videos.xml?channel_id=UC0E08avdHIH-7AMeVcBGRPQ"   # Horological Society of New York
 ]
 
 all_articles = []
