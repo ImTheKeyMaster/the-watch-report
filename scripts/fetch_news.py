@@ -32,7 +32,7 @@ youtube_channels = [
 max_articles_per_feed = 3
 
 # Configure user-agent for newspaper3k
-user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
 config = Config()
 config.browser_user_agent = user_agent
 
