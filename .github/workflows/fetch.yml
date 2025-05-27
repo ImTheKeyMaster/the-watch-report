@@ -31,3 +31,11 @@ jobs:
 
       - name: Run fetch script
         run: python scripts/fetch_news.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add -A  # Stage all changes, including untracked files
+          git commit -m "📰 Fetched watch news updates" || echo "No changes to commit"
+          git push
