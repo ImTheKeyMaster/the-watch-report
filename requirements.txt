@@ -2,4 +2,5 @@ requests
 beautifulsoup4
 openai
 feedparser
+pillow
 newspaper3k
