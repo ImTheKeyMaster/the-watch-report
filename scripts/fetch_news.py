@@ -1,52 +1,78 @@
 import feedparser
 import json
 import os
-from bs4 import BeautifulSoup
-import requests
+from datetime import datetime
+from urllib.parse import urlparse
 
-# Feed URLs and priority (lower number = higher priority)
-FEEDS = [
-    ("https://www.hodinkee.com/articles/rss", 1),
-    ("https://www.watchtime.com/feed/", 2),
-    ("https://www.revolution.watch/feed/", 3),
-    ("https://europastar.com/spip.php?page=backend", 4),
-]
+# RSS feed sources
+feeds = {
+    "Hodinkee": "https://www.hodinkee.com/articles/rss",
+    "WatchTime": "https://www.watchtime.com/feed/",
+    "Revolution": "https://revolutionwatch.com/feed/",
+    "Europa Star": "https://www.europastar.com/spip.php?page=backend",
+    "Worn & Wound": "https://wornandwound.com/feed/",
+    "Teddy Baldassarre": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVZ1uCTyU9nQ6vDZ9kQPLiA",
+    "Jenni Elle": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtOkz3tT5rZLMV0H1GhOQrA",
+    "Nico Leonard": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdK4zjJzI9bUPc9zLrF7K0w",
+    "The Time Teller": "https://www.youtube.com/feeds/videos.xml?channel_id=UCroA-g2IlNNSrZpM1n_Exow",
+    "Andrew Morgan": "https://www.youtube.com/feeds/videos.xml?channel_id=UCwV7vMbMWH4-V0ZXdmDpPBA",
+    "HSNY": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVGjv7rnV_1w8AeOYKNVD3w"
+}
 
-def extract_image(url):
-    try:
-        response = requests.get(url, timeout=5)
-        soup = BeautifulSoup(response.content, "html.parser")
-        for img in soup.find_all("img"):
-            src = img.get("src")
-            if src and src.startswith("http"):
-                return src
-    except Exception as e:
-        print(f"Error fetching image from {url}: {e}")
+def get_thumbnail(entry):
+    if "media_thumbnail" in entry:
+        return entry.media_thumbnail[0]["url"]
+    elif "media_content" in entry:
+        return entry.media_content[0]["url"]
+    elif "summary" in entry and "img" in entry["summary"]:
+        # Fallback: try to parse an image from summary HTML
+        import re
+        match = re.search(r'<img[^>]+src="([^"]+)"', entry["summary"])
+        if match:
+            return match.group(1)
     return None
 
-articles = []
+def parse_feed(source, url):
+    parsed = feedparser.parse(url)
+    articles = []
 
-# Collect articles, ranked by feed priority and date
-for feed_url, priority in FEEDS:
-    d = feedparser.parse(feed_url)
-    for entry in d.entries:
-        image = extract_image(entry.link)
-        if not image:
-            continue  # Skip if no usable image
-        article = {
-            "title": entry.title,
-            "link": entry.link,
-            "image": image,
-            "source_priority": priority,
-            "published": entry.get("published_parsed")
-        }
-        articles.append(article)
+    for entry in parsed.entries:
+        thumbnail = get_thumbnail(entry)
+        if not thumbnail:
+            continue
 
-# Sort by source priority first, then by published date (descending)
-articles.sort(key=lambda x: (x["source_priority"], x["published"] if x["published"] else 0), reverse=False)
+        try:
+            published = entry.get("published_parsed")
+            published_dt = datetime(*published[:6]) if published else datetime.utcnow()
+        except Exception:
+            published_dt = datetime.utcnow()
 
-# Write to data/news.json
-os.makedirs("data", exist_ok=True)
-with open("data/news.json", "w", encoding="utf-8") as f:
-    json.dump(articles, f, ensure_ascii=False, indent=2)
+        articles.append({
+            "title": entry.get("title", "Untitled"),
+            "link": entry.get("link", ""),
+            "published": published_dt.isoformat(),
+            "thumbnail": thumbnail,
+            "source": source
+        })
+    return articles
 
+# Aggregate all articles
+all_articles = []
+for source, url in feeds.items():
+    try:
+        articles = parse_feed(source, url)
+        all_articles.extend(articles)
+    except Exception as e:
+        print(f"Failed to parse {source}: {e}")
+
+# Sort by published date, descending
+all_articles.sort(key=lambda x: x["published"], reverse=True)
+
+# Save to JSON
+output_path = os.path.join("data", "news.json")
+os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+with open(output_path, "w", encoding="utf-8") as f:
+    json.dump(all_articles, f, indent=2)
+
+print(f"Saved {len(all_articles)} articles to {output_path}")
