@@ -27,6 +27,9 @@ jobs:
           pip install --no-cache-dir newspaper3k feedparser requests
           python -c "import nltk; nltk.download('punkt')"
 
+      - name: List installed packages  # ✅ Add this step here
+        run: pip list
+
       - name: Verify newspaper installation
         run: |
           pip show newspaper3k
