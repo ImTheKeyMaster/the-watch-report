@@ -4,90 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Watch Report</title>
-  <style>
-    body {
-      font-family: "Courier New", Courier, monospace;
-      background-color: #ffffff;
-      color: #000000;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
-    h1 {
-      font-size: 2.5em;
-      margin: 20px 0 10px;
-      text-transform: uppercase;
-    }
-    .main-story {
-      border-top: 4px double black;
-      border-bottom: 4px double black;
-      margin: 30px auto;
-      padding: 20px;
-      max-width: 800px;
-    }
-    .main-story img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 10px;
-    }
-    .main-story h2 {
-      font-size: 1.5em;
-      margin-bottom: 10px;
-    }
-    .links {
-      max-width: 600px;
-      margin: 0 auto 50px;
-    }
-    .links a {
-      display: block;
-      margin: 10px 0;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1em;
-    }
-    .links a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      font-size: 0.8em;
-      margin-bottom: 20px;
-      color: #666;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <h1>THE WATCH REPORT</h1>
-  <div class="main-story" id="main-story">
-    <!-- Main story will be injected here -->
-  </div>
-  <div class="links" id="other-links">
-    <!-- Other links will be injected here -->
-  </div>
-  <footer>Updated daily with top stories from the watch world.</footer>
-  <script>
-    fetch('data/news.json')
-      .then(response => response.json())
-      .then(data => {
-        const main = document.getElementById("main-story");
-        const links = document.getElementById("other-links");
+  <header>
+    <h1>The Watch Report</h1>
+    <p>Your Daily Dose of Horological Headlines</p>
+  </header>
 
-        const top = data[0];
-        main.innerHTML = `
-          <img src="${top.image_url}" alt="Main Story Image" />
-          <h2><a href="${top.url}" target="_blank">${top.title}</a></h2>
-          <p>${top.summary || ""}</p>
-        `;
+  <main id="news">
+    <p>Loading news...</p>
+  </main>
 
-        for (let i = 1; i < data.length; i++) {
-          const story = data[i];
-          links.innerHTML += `<a href="${story.url}" target="_blank">${story.title}</a>`;
-        }
-      })
-      .catch(err => {
-        document.getElementById("main-story").innerHTML = "<p>Unable to load news.</p>";
-        console.error("Failed to load news:", err);
-      });
-  </script>
+  <footer>
+    <p>Updated automatically by AI. Powered by OpenAI & GitHub Actions.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
