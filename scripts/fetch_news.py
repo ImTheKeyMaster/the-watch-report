@@ -1,102 +1,104 @@
-from datetime import datetime, timezone
 import feedparser
 import json
-from bs4 import BeautifulSoup
-import requests
 import os
+from datetime import datetime, timezone
+from urllib.parse import urlparse
 
-# Create the data directory if it doesn't exist
-os.makedirs("data", exist_ok=True)
-
-# RSS feeds from watch-related websites
-rss_feeds = [
-    "https://www.hodinkee.com/articles/rss",
-    "https://www.watchtime.com/feed/",
-    "https://revolutionwatch.com/feed/",
-    "https://europastar.com/spip.php?page=backend"
+# List of RSS feed URLs from watch-related websites
+WATCH_FEEDS = [
+    "https://hodinkee.com/feed",
+    "https://www.ablogtowatch.com/feed/",
+    "https://monochrome-watches.com/feed/",
+    "https://wornandwound.com/feed/",
+    "https://timeandtidewatches.com/feed/",
+    "https://watchtime.com/feed/"
 ]
 
-# YouTube channel RSS feeds
-youtube_feeds = [
-    "https://www.youtube.com/feeds/videos.xml?channel_id=UCPsgQZxEACESR0ogWm0dUFw",  # Teddy Baldassarre
-    "https://www.youtube.com/feeds/videos.xml?channel_id=UCvIIb5YF8sUnm1D62jCvVVw",  # Jenni Elle
-    "https://www.youtube.com/feeds/videos.xml?channel_id=UC-IVpEe1GQYclVEGLgPd82Q",  # Nico Leonard
-    "https://www.youtube.com/feeds/videos.xml?channel_id=UCt4id9K_t9zu-O23182P4vQ",  # The Time Teller
-    "https://www.youtube.com/feeds/videos.xml?channel_id=UCOu5VKZIHDXS-cHn9TOC0Qg",  # Andrew Morgan
-    "https://www.youtube.com/feeds/videos.xml?channel_id=UC0E08avdHIH-7AMeVcBGRPQ"   # Horological Society of New York
-]
+# YouTube channels to include (one latest video per channel)
+YOUTUBE_CHANNELS = {
+    "Teddy Baldassarre": "UCPsgQZxEACESR0ogWm0dUFw",
+    "Jenni Elle": "UCvIIb5YF8sUnm1D62jCvVVw",
+    "Nico Leonard": "UC-IVpEe1GQYclVEGLgPd82Q",
+    "The Time Teller": "UCt4id9K_t9zu-O23182P4vQ",
+    "Andrew Morgan": "UCOu5VKZIHDXS-cHn9TOC0Qg",
+    "Horological Society of New York": "UC0E08avdHIH-7AMeVcBGRPQ",
+}
 
-all_articles = []
+def fetch_rss_articles():
+    articles = []
+    for feed_url in WATCH_FEEDS:
+        feed = feedparser.parse(feed_url)
+        print(f"Fetched {len(feed.entries)} entries from {feed_url}")
+        for entry in feed.entries:
+            article = {
+                "title": entry.title,
+                "link": entry.link,
+                "published": entry.get("published", ""),
+                "thumbnail": extract_thumbnail(entry),
+                "source": urlparse(feed_url).netloc.replace("www.", "")
+            }
+            articles.append(article)
+    return articles
 
-def get_image_from_article(link):
-    try:
-        headers = {"User-Agent": "Mozilla/5.0"}
-        res = requests.get(link, timeout=10, headers=headers)
-        soup = BeautifulSoup(res.content, "html.parser")
-        og = soup.find("meta", property="og:image")
-        if og and og["content"]:
-            return og["content"]
-    except Exception:
-        pass
-    return ""
+def fetch_youtube_articles():
+    articles = []
+    for name, channel_id in YOUTUBE_CHANNELS.items():
+        url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
+        feed = feedparser.parse(url)
+        print(f"Fetched {len(feed.entries)} entries from {url}")
 
-# Process regular RSS feeds
-for url in rss_feeds:
-    feed = feedparser.parse(url)
-    for entry in feed.entries:
-        title = entry.title
-        link = entry.link
-        published = entry.get("published", "")
-        source = feed.feed.get("title", "Unknown")
-        image = get_image_from_article(link)
+        if feed.entries:
+            entry = feed.entries[0]  # only latest video
+            video_id = entry.get("yt_videoid")
+            if not video_id:
+                continue
 
-        article = {
-            "title": title,
-            "link": link,
-            "published": published,
-            "source": source,
-            "thumbnail": image
-        }
+            article = {
+                "title": entry.title,
+                "link": entry.link,
+                "published": entry.published,
+                "thumbnail": f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg",
+                "source": name
+            }
+            articles.append(article)
+    return articles
 
-        all_articles.append(article)
+def extract_thumbnail(entry):
+    media_content = entry.get("media_content", [])
+    if media_content:
+        return media_content[0].get("url")
+    if "media_thumbnail" in entry:
+        return entry["media_thumbnail"][0].get("url")
+    return None
 
-# Process YouTube RSS feeds
-for url in youtube_feeds:
-    feed = feedparser.parse(url)
-    print(f"Fetched {len(feed.entries)} entries from {url}")
-    for entry in feed.entries:
-        title = entry.title
-        link = entry.link
-        published = entry.get("published", "")
-        thumbnail = ""
-        if "media_thumbnail" in entry:
-            thumbnail = entry.media_thumbnail[0]["url"]
-
-        article = {
-            "title": title,
-            "link": link,
-            "published": published,
-            "source": "YouTube",
-            "thumbnail": thumbnail
-        }
-
-        all_articles.append(article)
-
-# Sort by published date, newest first
-#def parse_date(article):
-#    try:
-#        return datetime.datetime.strptime(article["published"], "%a, %d %b %Y %H:%M:%S %z")
-#    except Exception:
-#        return datetime.datetime.min
 def parse_date(article):
-    # Use published_parsed if available, else default to now
-    if "published_parsed" in article and article["published_parsed"]:
+    try:
         return datetime(*article["published_parsed"][:6], tzinfo=timezone.utc)
-    else:
+    except Exception:
         return datetime.now(timezone.utc)
-        
-all_articles = sorted(all_articles, key=parse_date, reverse=True)
 
-# Save to JSON
-with open("data/news.json", "w", encoding="utf-8") as f:
-    json.dump(all_articles, f, indent=2, ensure_ascii=False)
+def main():
+    rss_articles = fetch_rss_articles()
+    youtube_articles = fetch_youtube_articles()
+    all_articles = rss_articles + youtube_articles
+
+    # Attempt to parse published date properly
+    for article in all_articles:
+        if "published_parsed" not in article:
+            parsed = feedparser.parse(article["link"])
+            if parsed.entries:
+                article["published_parsed"] = parsed.entries[0].get("published_parsed")
+        if "published_parsed" not in article:
+            article["published_parsed"] = datetime.now(timezone.utc).timetuple()
+
+    # Sort by date
+    all_articles = sorted(all_articles, key=lambda x: x["published_parsed"], reverse=True)
+
+    # Save to JSON
+    output_dir = os.path.join(os.path.dirname(__file__), "..", "data")
+    os.makedirs(output_dir, exist_ok=True)
+    with open(os.path.join(output_dir, "news.json"), "w", encoding="utf-8") as f:
+        json.dump(all_articles, f, ensure_ascii=False, indent=2)
+
+if __name__ == "__main__":
+    main()
