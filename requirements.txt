@@ -5,3 +5,4 @@ feedparser
 pillow
 nltk
 newspaper3k
+pip install lxml[html_clean]
