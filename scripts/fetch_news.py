@@ -29,13 +29,15 @@ def fetch_rss_articles():
     for feed_url in WATCH_FEEDS:
         feed = feedparser.parse(feed_url)
         print(f"Fetched {len(feed.entries)} entries from {feed_url}")
-        for entry in feed.entries:
+        source_name = urlparse(feed_url).netloc.replace("www.", "")
+        for entry in feed.entries[:3]:  # limit to latest 3 per feed
             article = {
                 "title": entry.title,
                 "link": entry.link,
                 "published": entry.get("published", ""),
+                "published_parsed": entry.get("published_parsed"),
                 "thumbnail": extract_thumbnail(entry),
-                "source": urlparse(feed_url).netloc.replace("www.", "")
+                "source": source_name
             }
             articles.append(article)
     return articles
@@ -46,17 +48,16 @@ def fetch_youtube_articles():
         url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
         feed = feedparser.parse(url)
         print(f"Fetched {len(feed.entries)} entries from {url}")
-
         if feed.entries:
             entry = feed.entries[0]  # only latest video
             video_id = entry.get("yt_videoid")
             if not video_id:
                 continue
-
             article = {
                 "title": entry.title,
                 "link": entry.link,
-                "published": entry.published,
+                "published": entry.get("published", ""),
+                "published_parsed": entry.get("published_parsed"),
                 "thumbnail": f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg",
                 "source": name
             }
@@ -73,26 +74,19 @@ def extract_thumbnail(entry):
 
 def parse_date(article):
     try:
-        return datetime(*article["published_parsed"][:6], tzinfo=timezone.utc)
+        if article.get("published_parsed"):
+            return datetime(*article["published_parsed"][:6], tzinfo=timezone.utc)
     except Exception:
-        return datetime.now(timezone.utc)
+        pass
+    return datetime.now(timezone.utc)
 
 def main():
     rss_articles = fetch_rss_articles()
     youtube_articles = fetch_youtube_articles()
     all_articles = rss_articles + youtube_articles
 
-    # Attempt to parse published date properly
-    for article in all_articles:
-        if "published_parsed" not in article:
-            parsed = feedparser.parse(article["link"])
-            if parsed.entries:
-                article["published_parsed"] = parsed.entries[0].get("published_parsed")
-        if "published_parsed" not in article:
-            article["published_parsed"] = datetime.now(timezone.utc).timetuple()
-
-    # Sort by date
-    all_articles = sorted(all_articles, key=lambda x: x["published_parsed"], reverse=True)
+    # Sort all items together by publish date
+    all_articles = sorted(all_articles, key=parse_date, reverse=True)
 
     # Save to JSON
     output_dir = os.path.join(os.path.dirname(__file__), "..", "data")
