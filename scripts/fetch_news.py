@@ -83,12 +83,18 @@ for url in youtube_feeds:
         all_articles.append(article)
 
 # Sort by published date, newest first
+#def parse_date(article):
+#    try:
+#        return datetime.datetime.strptime(article["published"], "%a, %d %b %Y %H:%M:%S %z")
+#    except Exception:
+#        return datetime.datetime.min
 def parse_date(article):
-    try:
-        return datetime.datetime.strptime(article["published"], "%a, %d %b %Y %H:%M:%S %z")
-    except Exception:
-        return datetime.datetime.min
-
+    # Use published_parsed if available, else default to now
+    if "published_parsed" in article and article["published_parsed"]:
+        return datetime(*article["published_parsed"][:6], tzinfo=timezone.utc)
+    else:
+        return datetime.now(timezone.utc)
+        
 all_articles = sorted(all_articles, key=parse_date, reverse=True)
 
 # Save to JSON
