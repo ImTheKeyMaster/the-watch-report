@@ -1,53 +1,33 @@
-import feedparser, json, openai, os
+import os
+import requests
+import json
 from datetime import datetime
 from bs4 import BeautifulSoup
+from openai import OpenAI
 
-# Replace this with your actual OpenAI key or use GitHub secrets
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
-FEEDS = [
-    "https://www.hodinkee.com/feed",
-    "https://www.watchtime.com/feed/",
-    "https://www.revolution.watch/feed/",
-    "https://www.europastar.com/spip.php?page=backend",
+# === CONFIGURATION ===
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY") or "YOUR_OPENAI_API_KEY"
+OUTPUT_PATH = "data/news.json"
+NEWS_SOURCES = [
+    "https://www.hodinkee.com",
+    "https://www.watchtime.com",
+    "https://www.revolution.watch",
+    "https://www.europastar.com"
 ]
+PLACEHOLDER_IMAGE = "https://via.placeholder.com/800x400?text=No+Image"
 
-def summarize(title, link, description):
-    prompt = f"Summarize this watch-related article:\nTitle: {title}\nDescription: {description}\nURL: {link}\n\nSummary:"
+# === FUNCTIONS ===
+
+def fetch_html(url):
     try:
-        response = openai.ChatCompletion.create(
-            model="gpt-4",
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=100
-        )
-        return response.choices[0].message.content.strip()
+        response = requests.get(url, timeout=10)
+        if response.status_code == 200:
+            return response.text
     except Exception as e:
-        return ""
+        print(f"Failed to fetch {url}: {e}")
+    return None
 
-def fetch_image(entry):
-    soup = BeautifulSoup(entry.get("summary", ""), "html.parser")
-    img = soup.find("img")
-    return img["src"] if img else ""
-
-def fetch_all():
-    all_items = []
-    for url in FEEDS:
-        feed = feedparser.parse(url)
-        for entry in feed.entries[:5]:
-            all_items.append({
-                "title": entry.title,
-                "link": entry.link,
-                "summary": summarize(entry.title, entry.link, entry.get("description", "")),
-                "image": fetch_image(entry)
-            })
-    all_items.sort(key=lambda x: len(x['summary']), reverse=True)
-    return {
-        "main": all_items[0],
-        "others": all_items[1:10]
-    }
-
-if __name__ == "__main__":
-    news = fetch_all()
-    os.makedirs("data", exist_ok=True)
-    with open("data/latest.json", "w", encoding="utf-8") as f:
-        json.dump(news, f, ensure_ascii=False, indent=2)
+def extract_links(source_html, base_url):
+    soup = BeautifulSoup(source_html, "html.parser")
+    links = []
+    for a in soup.find_all("a",_
