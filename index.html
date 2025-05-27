@@ -43,6 +43,7 @@
         topCard.innerHTML = `
           ${topThumbnail}
           <h2>${topStory.title}</h2>
+          <p>${topStory.source}</p>
           <a href="${topStory.link}" target="_blank">${topIsYouTube ? "Watch Video" : "Read more"}</a>
           <hr>
         `;
@@ -57,6 +58,7 @@
           card.innerHTML = `
             ${thumbnail}
             <h2>${item.title}</h2>
+            <p>${item.source}</p>
             <a href="${item.link}" target="_blank">${isYouTube ? "Watch Video" : "Read more"}</a>
             <hr>
           `;
