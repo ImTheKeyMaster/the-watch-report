@@ -3,4 +3,5 @@ beautifulsoup4
 openai
 feedparser
 pillow
+nltk
 newspaper3k
