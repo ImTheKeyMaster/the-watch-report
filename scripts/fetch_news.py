@@ -13,7 +13,7 @@ rss_feeds = [
     "https://www.hodinkee.com/articles/rss",
     "https://monochrome-watches.com/feed/",
     "https://wornandwound.com/feed/",
-    "https://www.watchtime34.rssing.com/",
+    "https://www.watchtime.com/feed/",
     "https://www.fratellowatches.com/feed/",
     "https://watchclicker.com/feed/",
     "https://www.timeandwatches.com/feeds/posts/default",
@@ -22,10 +22,15 @@ rss_feeds = [
 
 youtube_channels = [
     "UCPsgQZxEACESR0ogWm0dUFw",  # Teddy Baldassarre
+    "UCvIIb5YF8sUnm1D62jCvVVw",  # BarkandJack
     "UCvIIb5YF8sUnm1D62jCvVVw",  # Jenni Elle
     "UC-IVpEe1GQYclVEGLgPd82Q",  # Nico Leonard
     "UCt4id9K_t9zu-O23182P4vQ",  # The Time Teller
     "UCOu5VKZIHDXS-cHn9TOC0Qg",  # Andrew Morgan
+    "UCF0mZ8eOx3ie5yCErYRoT5A",  # WatchFinder
+    "UCZnVGL3UzxeC1LMrJGcI0Cg",  # Hodinkee
+    "UCqRdOESEo9GGB1zh4YW1iKw",  # AboutEffingTime
+    "UCgeGealT0QYcrnoYRMltDZg",  # CrownandCaliber
     "UC0E08avdHIH-7AMeVcBGRPQ"   # Horological Society of New York
 ]
 
