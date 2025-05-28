@@ -13,7 +13,7 @@ rss_feeds = [
     "https://www.hodinkee.com/articles/rss",
     "https://monochrome-watches.com/feed/",
     "https://wornandwound.com/feed/",
-    "https://www.ablogtowatch.com/feed/",
+    "https://www.watchtime34.rssing.com/",
     "https://www.fratellowatches.com/feed/",
     "https://watchclicker.com/feed/",
     "https://www.timeandwatches.com/feeds/posts/default",
