@@ -89,7 +89,7 @@ def parse_date(article):
 
 all_articles = sorted(all_articles, key=parse_date, reverse=True)
 
-output_dir = os.path.join(os.path.dirname(__file__), "..", "docs", "data")
+output_dir = os.path.join(os.path.dirname(__file__), "..", "data")
 os.makedirs(output_dir, exist_ok=True)
 
 with open(os.path.join(output_dir, "news.json"), "w", encoding="utf-8") as f:
