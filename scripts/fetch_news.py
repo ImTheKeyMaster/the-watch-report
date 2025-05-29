@@ -71,6 +71,14 @@ for channel_id in youtube_channels:
     print(f"Fetched {len(feed.entries)} entries from {feed_url}")
     for entry in feed.entries[:1]:  # Only latest video
         try:
+            # 🔧 Extract actual channel ID from the entry
+            entry_channel_id = entry.get("yt_channelid")
+
+            # 🔧 Skip if this video isn't actually from the expected channel
+            if entry_channel_id != channel_id:
+                print(f"❌ Skipping video from unexpected channel: {entry_channel_id}")
+                continue
+
             published = entry.get("published_parsed")
             published_date = datetime.fromtimestamp(0, tz=timezone.utc)
             if published:
@@ -84,7 +92,7 @@ for channel_id in youtube_channels:
                 "thumbnail": media_thumbnail
             })
         except Exception as e:
-            print(f"Error processing YouTube entry: {entry.link}\n{e}")
+            print(f"Error processing YouTube entry: {entry.get('link', 'N/A')}\n{e}")
 
 def parse_date(article):
     try:
