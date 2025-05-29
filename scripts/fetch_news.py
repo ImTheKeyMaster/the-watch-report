@@ -30,7 +30,6 @@ youtube_channels = [
     "UCF0mZ8eOx3ie5yCErYRoT5A",  # WatchFinder
     "UCZnVGL3UzxeC1LMrJGcI0Cg",  # Hodinkee
     "UCqRdOESEo9GGB1zh4YW1iKw",  # AboutEffingTime
-    "UCgeGealT0QYcrnoYRMltDZg",  # CrownandCaliber
     "UC0E08avdHIH-7AMeVcBGRPQ"   # Horological Society of New York
 ]
 
