@@ -23,7 +23,7 @@ rss_feeds = [
 youtube_channels = [
     "UCPsgQZxEACESR0ogWm0dUFw",  # Teddy Baldassarre
     "UCvIIb5YF8sUnm1D62jCvVVw",  # BarkandJack
-    "UCvIIb5YF8sUnm1D62jCvVVw",  # Jenni Elle
+    "UCpGAs9xB__Y3W5d2WPC6wVw",  # Jenni Elle
     "UC-IVpEe1GQYclVEGLgPd82Q",  # Nico Leonard
     "UCt4id9K_t9zu-O23182P4vQ",  # The Time Teller
     "UCOu5VKZIHDXS-cHn9TOC0Qg",  # Andrew Morgan
