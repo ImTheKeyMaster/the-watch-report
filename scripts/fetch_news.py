@@ -69,16 +69,15 @@ for channel_id in youtube_channels:
     feed_url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
     feed = feedparser.parse(feed_url)
     print(f"Fetched {len(feed.entries)} entries from {feed_url}")
+    
+    # ✅ Confirm feed actually matches the channel
+    feed_channel_url = feed.feed.get("link", "")
+    if not feed_channel_url.endswith(channel_id):
+        print(f"❌ Skipping feed that doesn't match channel: {feed_channel_url}")
+        continue
+
     for entry in feed.entries[:1]:  # Only latest video
         try:
-            # 🔧 Extract actual channel ID from the entry
-            entry_channel_id = entry.get("yt_channelid")
-
-            # 🔧 Skip if this video isn't actually from the expected channel
-            if entry_channel_id != channel_id:
-                print(f"❌ Skipping video from unexpected channel: {entry_channel_id}")
-                continue
-
             published = entry.get("published_parsed")
             published_date = datetime.fromtimestamp(0, tz=timezone.utc)
             if published:
