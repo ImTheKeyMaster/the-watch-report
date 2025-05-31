@@ -30,6 +30,21 @@
           return;
         }
 
+        // 🆕 Filter out stories older than 1 month
+        const now = new Date();
+        const oneMonthAgo = new Date(now);
+        oneMonthAgo.setMonth(now.getMonth() - 1);
+
+        const recentNews = news.filter(item => {
+          const publishedDate = new Date(item.published);
+          return publishedDate >= oneMonthAgo;
+        });
+
+        if (recentNews.length === 0) {
+          container.innerHTML = '<p>No recent news articles found (within the past month).</p>';
+          return;
+        }
+
         const youtubeSources = [
           "Teddy Baldassarre",
           "Jenni Elle",
@@ -70,10 +85,10 @@
         };
 
         // Top story
-        container.appendChild(createCard(news[0], true));
+        container.appendChild(createCard(recentNews[0], true));
 
         // Remaining stories
-        news.slice(1).forEach(item => {
+        recentNews.slice(1).forEach(item => {
           container.appendChild(createCard(item));
         });
 
