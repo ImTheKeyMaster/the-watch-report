@@ -7,6 +7,7 @@ os.environ['NLTK_DATA'] = '/tmp/nltk_data'
 from datetime import datetime, timezone
 from newspaper import Article, Config
 from slugify import slugify
+import requests
 
 # RSS feeds to parse
 rss_feeds = [
@@ -40,6 +41,14 @@ user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 config = Config()
 config.browser_user_agent = user_agent
 
+def is_valid_image_url(url):
+    try:
+        response = requests.head(url, timeout=5, allow_redirects=True)
+        return response.status_code == 200
+    except Exception as e:
+        print(f"Invalid image URL: {url} - {e}")
+        return False
+
 all_articles = []
 
 for url in rss_feeds:
@@ -54,12 +63,17 @@ for url in rss_feeds:
             published_date = datetime.fromtimestamp(0, tz=timezone.utc)
             if published:
                 published_date = datetime(*published[:6], tzinfo=timezone.utc)
+
+            thumbnail = ""
+            if article.top_image and is_valid_image_url(article.top_image):
+                thumbnail = article.top_image
+
             all_articles.append({
                 "title": article.title,
                 "link": entry.link,
                 "source": feed.feed.get("title", ""),
                 "published": published_date.isoformat(),
-                "thumbnail": article.top_image if article.top_image else ""
+                "thumbnail": thumbnail
             })
         except Exception as e:
             print(f"Error processing article: {entry.link}\n{e}")
@@ -69,7 +83,6 @@ for channel_id in youtube_channels:
     feed = feedparser.parse(feed_url)
     print(f"Fetched {len(feed.entries)} entries from {feed_url}")
     
-    # ✅ Confirm feed actually matches the channel
     feed_channel_url = feed.feed.get("link", "")
     if not feed_channel_url.endswith(channel_id):
         print(f"❌ Skipping feed that doesn't match channel: {feed_channel_url}")
@@ -82,6 +95,8 @@ for channel_id in youtube_channels:
             if published:
                 published_date = datetime(*published[:6], tzinfo=timezone.utc)
             media_thumbnail = entry.get("media_thumbnail", [{}])[0].get("url", "")
+            if media_thumbnail and not is_valid_image_url(media_thumbnail):
+                media_thumbnail = ""
             all_articles.append({
                 "title": f"(VIDEO) {entry.title}",
                 "link": entry.link,
