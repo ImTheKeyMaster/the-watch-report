@@ -26,7 +26,8 @@ youtube_channels = [
     "UCvIIb5YF8sUnm1D62jCvVVw",  # BarkandJack
     "UCpGAs9xB__Y3W5d2WPC6wVw",  # Jenni Elle
     "UC-IVpEe1GQYclVEGLgPd82Q",  # Nico Leonard
-    "UCt4id9K_t9zu-O23182P4vQ",  # The Time Teller
+    "UCpIdSH75bNfHIsryKCTzTWw",  # The 1916 Company
+    "UC7vSOnpUocYq0z8oiYFk0zQ",  # Wristwatch Revival
     "UCOu5VKZIHDXS-cHn9TOC0Qg",  # Andrew Morgan
     "UCF0mZ8eOx3ie5yCErYRoT5A",  # WatchFinder
     "UCZnVGL3UzxeC1LMrJGcI0Cg",  # Hodinkee
