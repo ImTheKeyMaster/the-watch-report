@@ -24,42 +24,51 @@
     nav {
       position: fixed;
       top: 0;
+      right: 0;
       width: 100%;
       padding: 20px 40px;
       background-color: transparent;
-      transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
       z-index: 1000;
+      display: flex;
+      justify-content: flex-end;
     }
 
     nav.scrolled {
       background: rgba(255, 255, 255, 0.95);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      padding: 10px 30px;
     }
 
-    nav .nav-container {
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 6px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #222;
+      border-radius: 2px;
+    }
+
+    ul.nav-links {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav .logo img {
-      height: 100px;
-    }
-
-    nav ul {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
       list-style: none;
       gap: 40px;
     }
 
-    nav a {
+    ul.nav-links li a {
       text-decoration: none;
       color: #222;
       font-weight: 500;
       font-size: 1rem;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
     }
 
     /* Hero Section */
@@ -67,7 +76,7 @@
       height: 100vh;
       background-image: url('/images/Old_Gentry.jpeg');
       background-size: cover;
-      background-position: center center;
+      background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
       position: relative;
@@ -75,7 +84,6 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      overflow: hidden;
     }
 
     #hero::before {
@@ -86,20 +94,23 @@
       z-index: 0;
     }
 
+    .logo-overlay {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1;
+    }
+
+    .logo-overlay img {
+      height: 100px;
+    }
+
     #hero .overlay {
       position: relative;
       z-index: 1;
       color: #fff;
       padding: 0 20px;
       max-width: 800px;
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    #hero .fade-out {
-      opacity: 0;
-      transform: translateY(-30px);
     }
 
     #hero h1 {
@@ -121,11 +132,9 @@
       font-weight: bold;
     }
 
-    /* Section styles */
     section {
       padding: 100px 20px;
       text-align: center;
-      background: none;
     }
 
     section h2 {
@@ -138,7 +147,6 @@
       margin: 0 auto 40px;
     }
 
-    /* Cards as full-width blocks with alternating backgrounds */
     .cards {
       display: block;
     }
@@ -148,7 +156,6 @@
       padding: 60px 20px;
       margin: 0 auto;
       border-radius: 0;
-      box-shadow: none;
       text-align: center;
     }
 
@@ -179,30 +186,37 @@
       text-align: center;
     }
 
+    /* Responsive */
     @media (max-width: 768px) {
-      nav ul {
+      .menu-toggle {
+        display: flex;
+      }
+
+      ul.nav-links {
+        display: none;
         flex-direction: column;
-        align-items: flex-end;
+        background: rgba(255,255,255,0.95);
+        position: absolute;
+        top: 70px;
+        right: 40px;
         gap: 20px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        z-index: 1001;
       }
 
-      nav .nav-container {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .logo {
-        align-self: flex-start;
-        margin-bottom: 10px;
-      }
-
-      #hero {
-        background-attachment: scroll !important;
-        background-position: center top;
+      ul.nav-links.active {
+        display: flex;
       }
 
       #hero h1 {
         font-size: 2rem;
+      }
+
+      #hero {
+        background-attachment: scroll;
+        background-position: center top;
       }
     }
   </style>
@@ -211,19 +225,24 @@
 
   <!-- Navigation -->
   <nav id="navbar">
-    <div class="nav-container">
-      <div class="logo"><img src="/images/ULHC Logo - Tight Crop.png" alt="Logo"></div>
-      <ul>
-        <li><a href="news.html">Watch News</a></li>
-        <li><a href="https://www.watchreport.org/calendar.html">Events Calendar</a></li>
-        <li><a href="https://www.watchreport.org/Horology%20Club%20-%20Bylaws%20-%202025.pdf" target="_blank">Bylaws</a></li>
-        <li><a href="#hero">Join</a></li>
-      </ul>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="news.html">Watch News</a></li>
+      <li><a href="https://www.watchreport.org/calendar.html">Events Calendar</a></li>
+      <li><a href="https://www.watchreport.org/Horology%20Club%20-%20Bylaws%20-%202025.pdf" target="_blank">Bylaws</a></li>
+      <li><a href="#hero">Join</a></li>
+    </ul>
   </nav>
 
   <!-- Hero -->
   <header id="hero">
+    <div class="logo-overlay">
+      <img src="/images/ULHC Logo - Tight Crop.png" alt="Logo">
+    </div>
     <div class="overlay" id="heroContent">
       <h1>The Union League Horology Club</h1>
       <p>Your daily dose of curated watch news, releases, and collector stories.</p>
@@ -265,32 +284,31 @@
     &copy; 2025 The Union League Horology Club. All rights reserved.
   </footer>
 
-  <!-- JavaScript -->
+  <!-- JS for scroll and menu toggle -->
   <script>
     const nav = document.getElementById('navbar');
     const heroContent = document.getElementById('heroContent');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
 
     window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-
-      // Sticky nav effects
-      nav.classList.toggle('scrolled', scrollY > 50);
-
-      // Fade out hero content
-      if (scrollY > 100) {
-        heroContent.classList.add('fade-out');
-      } else {
-        heroContent.classList.remove('fade-out');
-      }
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+      heroContent.classList.toggle('fade-out', window.scrollY > 100);
     });
 
-    // Smooth scroll for nav links
+    // Toggle hamburger menu
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Smooth scroll
     document.querySelectorAll('nav a[href^="#"]').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
         document.querySelector(this.getAttribute('href')).scrollIntoView({
           behavior: 'smooth'
         });
+        navLinks.classList.remove('active'); // close menu after click
       });
     });
   </script>
