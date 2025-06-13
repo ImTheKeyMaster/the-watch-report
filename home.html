@@ -17,12 +17,12 @@
       overflow-x: hidden;
     }
 
-    /* Logo Overlay (scrolls with hero) */
+    /* Logo pinned top-left */
     .logo-overlay {
-      position: relative;
+      position: fixed;
       top: 20px;
       left: 20px;
-      z-index: 10;
+      z-index: 1001;
     }
 
     .logo-overlay img {
@@ -76,13 +76,12 @@
       background-position: center;
       background-repeat: no-repeat;
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
-      text-align: left;
+      text-align: center;
       color: white;
-      padding: 20px;
       isolation: isolate;
+      padding: 20px;
     }
 
     #hero::before {
@@ -96,8 +95,7 @@
     #hero .overlay {
       position: relative;
       z-index: 1;
-      padding: 20px;
-      max-width: 600px;
+      max-width: 700px;
     }
 
     #hero h1 {
@@ -223,6 +221,11 @@
 </head>
 <body>
 
+  <!-- Logo pinned top-left -->
+  <div class="logo-overlay">
+    <img src="/images/ULHC Logo - Tight Crop.png" alt="Logo">
+  </div>
+
   <!-- Navigation -->
   <nav>
     <div class="hamburger" id="hamburger">
@@ -240,10 +243,6 @@
 
   <!-- Hero -->
   <header id="hero">
-    <!-- Logo now scrolls with the background -->
-    <div class="logo-overlay">
-      <img src="/images/ULHC Logo - Tight Crop.png" alt="Logo">
-    </div>
     <div class="overlay">
       <h1>The Union League Horology Club</h1>
       <p>Your daily dose of curated watch news, releases, and collector stories.</p>
@@ -276,4 +275,28 @@
 
   <!-- Footer -->
   <footer>
-    &copy; 2025 The Union League Horology Club. All
+    &copy; 2025 The Union League Horology Club. All rights reserved.
+  </footer>
+
+  <!-- JS -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        navLinks.classList.remove('show');
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
