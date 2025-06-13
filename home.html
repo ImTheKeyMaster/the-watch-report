@@ -24,29 +24,43 @@
     nav {
       position: fixed;
       top: 0;
-      right: 0;
-      padding: 20px 30px;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: transparent;
+      transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
       z-index: 1000;
     }
 
-    .hamburger {
+    nav.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 10px 30px;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .menu-toggle {
       display: none;
       flex-direction: column;
       cursor: pointer;
     }
 
-    .hamburger span {
+    .menu-toggle span {
       height: 3px;
       width: 25px;
-      background: #000;
+      background: #222;
       margin-bottom: 5px;
-      border-radius: 5px;
+      border-radius: 2px;
     }
 
-    nav ul {
+    ul.nav-links {
       display: flex;
-      gap: 30px;
       list-style: none;
+      gap: 40px;
     }
 
     nav a {
@@ -61,7 +75,7 @@
       height: 100vh;
       background-image: url('/images/Old_Gentry.jpeg');
       background-size: cover;
-      background-position: center center;
+      background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
       position: relative;
@@ -82,13 +96,13 @@
 
     .logo-overlay {
       position: absolute;
-      top: 30px;
-      left: 30px;
+      top: 20px;
+      left: 20px;
       z-index: 2;
     }
 
     .logo-overlay img {
-      height: 100px;
+      height: 80px;
     }
 
     #hero .overlay {
@@ -97,6 +111,14 @@
       color: #fff;
       padding: 0 20px;
       max-width: 800px;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    #hero .fade-out {
+      opacity: 0;
+      transform: translateY(-30px);
     }
 
     #hero h1 {
@@ -118,7 +140,6 @@
       font-weight: bold;
     }
 
-    /* Sections */
     section {
       padding: 100px 20px;
       text-align: center;
@@ -142,6 +163,8 @@
       max-width: 100%;
       padding: 60px 20px;
       margin: 0 auto;
+      border-radius: 0;
+      box-shadow: none;
       text-align: center;
     }
 
@@ -157,6 +180,7 @@
       max-width: 90%;
       height: auto;
       margin-bottom: 20px;
+      border-radius: 8px;
     }
 
     .card h3 {
@@ -171,48 +195,39 @@
       text-align: center;
     }
 
-    /* Responsive Styles */
+    /* Responsive */
     @media (max-width: 768px) {
-      .hamburger {
+      .menu-toggle {
         display: flex;
       }
 
-      nav ul {
+      ul.nav-links {
         flex-direction: column;
-        background-color: rgba(255, 255, 255, 0.95);
+        align-items: flex-end;
         position: absolute;
         top: 70px;
-        right: 30px;
+        right: 40px;
+        background: white;
         padding: 20px;
-        border-radius: 8px;
         display: none;
+        gap: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       }
 
-      nav ul.show {
+      ul.nav-links.show {
         display: flex;
-      }
-
-      #hero {
-        background-attachment: scroll;
-      }
-
-      .logo-overlay img {
-        height: 80px;
       }
 
       #hero h1 {
         font-size: 2rem;
       }
-
-      #hero p {
-        font-size: 1rem;
-      }
     }
 
     @media screen and (max-height: 500px) and (orientation: landscape) {
       #hero {
-        background-size: contain;
-        height: 70vh;
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
       }
 
       .logo-overlay img {
@@ -220,46 +235,37 @@
       }
 
       #hero h1 {
-        font-size: 1.5rem;
-      }
-
-      #hero p {
-        font-size: 1rem;
-      }
-
-      .cta-button {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-      }
-
-      #hero .overlay {
-        padding-top: 60px;
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Logo overlay -->
+  <div class="logo-overlay">
+    <img src="/images/ULHC Logo - Tight Crop.png" alt="Logo">
+  </div>
+
   <!-- Navigation -->
-  <nav>
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+  <nav id="navbar">
+    <div class="nav-container">
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="news.html">Watch News</a></li>
+        <li><a href="https://www.watchreport.org/calendar.html">Events Calendar</a></li>
+        <li><a href="https://www.watchreport.org/Horology%20Club%20-%20Bylaws%20-%202025.pdf" target="_blank">Bylaws</a></li>
+        <li><a href="#hero">Join</a></li>
+      </ul>
     </div>
-    <ul id="navMenu">
-      <li><a href="news.html">Watch News</a></li>
-      <li><a href="https://www.watchreport.org/calendar.html">Events Calendar</a></li>
-      <li><a href="https://www.watchreport.org/Horology%20Club%20-%20Bylaws%20-%202025.pdf" target="_blank">Bylaws</a></li>
-      <li><a href="#hero">Join</a></li>
-    </ul>
   </nav>
 
-  <!-- Hero with Logo Overlay -->
+  <!-- Hero -->
   <header id="hero">
-    <div class="logo-overlay">
-      <img src="/images/ULHC Logo - Tight Crop.png" alt="Logo">
-    </div>
     <div class="overlay" id="heroContent">
       <h1>The Union League Horology Club</h1>
       <p>Your daily dose of curated watch news, releases, and collector stories.</p>
@@ -303,34 +309,30 @@
 
   <!-- JavaScript -->
   <script>
+    const nav = document.getElementById('navbar');
     const heroContent = document.getElementById('heroContent');
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
 
     window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      if (scrollY > 100) {
-        heroContent.classList.add('fade-out');
-      } else {
-        heroContent.classList.remove('fade-out');
-      }
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+      heroContent.classList.toggle('fade-out', window.scrollY > 100);
     });
 
-    // Hamburger toggle
-    hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('show');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
     });
 
-    // Smooth scroll
     document.querySelectorAll('nav a[href^="#"]').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
+        navLinks.classList.remove('show');
         document.querySelector(this.getAttribute('href')).scrollIntoView({
           behavior: 'smooth'
         });
-        navMenu.classList.remove('show'); // Close on click
       });
     });
   </script>
+
 </body>
 </html>
