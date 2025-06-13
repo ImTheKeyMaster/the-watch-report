@@ -1,41 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Union League Horology Club</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #fdfaf3;
+      color: #3e3a35;
+    }
+    .vintage-shadow {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .gold-border {
+      border-color: #d6b24c;
+    }
+  </style>
 </head>
-<body class="bg-yellow-50 text-gray-900 font-serif">
-  <header class="text-center p-8 bg-yellow-100 border-b-2 border-yellow-300">
+<body class="font-serif">
+  <header class="text-center py-10 px-4 bg-gradient-to-b from-yellow-100 to-yellow-50 border-b-4 gold-border">
     <img src="/images/ULHC Logo - SVG.svg" alt="ULHC Logo" class="mx-auto mb-4 w-32">
-    <h1 class="text-4xl font-bold">The Union League Horology Club</h1>
-    <p class="italic mt-2">Fostering a community of timepiece connoisseurs</p>
+    <h1 class="text-5xl font-extrabold tracking-tight text-gray-800">The Union League Horology Club</h1>
+    <p class="italic text-lg mt-3 text-gray-600">Fostering a community of timepiece connoisseurs</p>
   </header>
 
-  <main class="p-8 max-w-4xl mx-auto space-y-6">
-    <section>
-      <h2 class="text-2xl font-bold mb-2">Mission Statement</h2>
+  <main class="max-w-5xl mx-auto p-8 space-y-10">
+    <section class="bg-white vintage-shadow p-6 rounded-md border gold-border">
+      <h2 class="text-3xl font-semibold mb-3 text-yellow-800">Mission Statement</h2>
       <p>The Union League Horology Club is dedicated to fostering a community of watch enthusiasts who appreciate the artistry, craftsmanship, and history of timepieces.</p>
     </section>
-    <section>
-      <h2 class="text-2xl font-bold mb-2">Our Purpose</h2>
+
+    <section class="bg-white vintage-shadow p-6 rounded-md border gold-border">
+      <h2 class="text-3xl font-semibold mb-3 text-yellow-800">Our Purpose</h2>
       <p>To bring together watch enthusiasts to explore the art and craftsmanship of watchmaking, share their collections, and connect with like-minded members in a convivial setting.</p>
     </section>
-    <section>
-      <h2 class="text-2xl font-bold mb-2">For Members & Spouses</h2>
+
+    <section class="bg-white vintage-shadow p-6 rounded-md border gold-border">
+      <h2 class="text-3xl font-semibold mb-3 text-yellow-800">For Members & Spouses</h2>
       <p>The club benefits Union League members and spouses by attracting and engaging members with a shared passion for fine timepieces, fostering a sense of community, and enhancing the League’s reputation as a hub for intellectual and cultural enrichment.</p>
     </section>
-    <section>
-      <h2 class="text-2xl font-bold mb-2">American Watchmaking</h2>
+
+    <section class="bg-white vintage-shadow p-6 rounded-md border gold-border">
+      <h2 class="text-3xl font-semibold mb-3 text-yellow-800">American Watchmaking</h2>
       <p>We cultivate a deep appreciation for the history of American watchmaking, highlighting its craftsmanship, innovation, and its vital role in our nation's history—including its contributions to the military, such as Waltham and Elgin pocket watches used during the Civil War.</p>
     </section>
-    <section class="flex gap-6 mt-8">
-      <a href="calendar.html" class="underline text-blue-600">Calendar of Events</a>
-      <a href="news.html" class="underline text-blue-600">Daily Watch News</a>
-      <a href="https://www.unionleague.org" class="underline text-blue-600">Join ULHC</a>
-      <a href="Horology Club - Bylaws - 2025.pdf" class="underline text-blue-600">Club Bylaws (PDF)</a>
+
+    <section class="text-center space-x-6 mt-10">
+      <a href="calendar.html" class="inline-block px-4 py-2 text-white bg-yellow-600 hover:bg-yellow-700 rounded-md transition">Calendar of Events</a>
+      <a href="news.html" class="inline-block px-4 py-2 text-white bg-yellow-600 hover:bg-yellow-700 rounded-md transition">Daily Watch News</a>
+      <a href="https://www.unionleague.org" class="inline-block px-4 py-2 text-white bg-yellow-600 hover:bg-yellow-700 rounded-md transition">Join ULHC</a>
+      <a href="Horology Club - Bylaws - 2025.pdf" class="inline-block px-4 py-2 text-white bg-yellow-600 hover:bg-yellow-700 rounded-md transition">Club Bylaws (PDF)</a>
     </section>
   </main>
+
+  <footer class="text-center mt-16 mb-6 text-sm text-gray-500">
+    &copy; 2025 The Union League Horology Club. All rights reserved.
+  </footer>
 </body>
 </html>
