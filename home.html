@@ -11,12 +11,7 @@
       padding: 0;
       box-sizing: border-box;
     }
-@media (max-width: 768px) {
-  #hero {
-    background-attachment: scroll !important;
-    background-position: center top;
-  }
-}
+
     html, body {
       height: 100%;
       font-family: 'Inter', sans-serif;
@@ -42,9 +37,20 @@
       padding: 10px 30px;
     }
 
+    nav .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo img {
+      height: 40px;
+    }
+
     nav ul {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
+      align-items: center;
       list-style: none;
       gap: 40px;
     }
@@ -60,9 +66,10 @@
     #hero {
       height: 100vh;
       background-image: url('/images/Old_Gentry.jpeg');
-background-size: cover;
-background-position: center center;
-background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       position: relative;
       display: flex;
       align-items: center;
@@ -118,7 +125,7 @@ background-repeat: no-repeat;
     section {
       padding: 100px 20px;
       text-align: center;
-      background: #fff;
+      background: none;
     }
 
     section h2 {
@@ -131,35 +138,37 @@ background-repeat: no-repeat;
       margin: 0 auto 40px;
     }
 
+    /* Cards as full-width blocks with alternating backgrounds */
     .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
+      display: block;
     }
 
     .card {
-      background: white;
-      max-width: 320px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-      padding: 20px;
-      text-align: left;
-      transition: transform 0.2s ease;
+      max-width: 100%;
+      padding: 60px 20px;
+      margin: 0 auto;
+      border-radius: 0;
+      box-shadow: none;
+      text-align: center;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
+    .card:nth-child(odd) {
+      background-color: #ffffff;
+    }
+
+    .card:nth-child(even) {
+      background-color: #f3f3f3;
     }
 
     .card img {
-      width: 100%;
-      border-radius: 6px;
-      margin-bottom: 15px;
+      max-width: 90%;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 8px;
     }
 
     .card h3 {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       margin-bottom: 10px;
     }
 
@@ -173,16 +182,27 @@ background-repeat: no-repeat;
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
+        align-items: flex-end;
         gap: 20px;
+      }
+
+      nav .nav-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .logo {
+        align-self: flex-start;
+        margin-bottom: 10px;
+      }
+
+      #hero {
+        background-attachment: scroll !important;
+        background-position: center top;
       }
 
       #hero h1 {
         font-size: 2rem;
-      }
-
-      .cards {
-        flex-direction: column;
-        align-items: center;
       }
     }
   </style>
@@ -191,12 +211,15 @@ background-repeat: no-repeat;
 
   <!-- Navigation -->
   <nav id="navbar">
-    <ul>
-      <li><a href="news.html">Watch News</a></li>
-      <li><a href="https://www.watchreport.org/calendar.html">Events Calendar</a></li>
-      <li><a href="https://www.watchreport.org/Horology%20Club%20-%20Bylaws%20-%202025.pdf" target="_blank">Bylaws</a></li>
-      <li><a href="#hero">Join</a></li>
-    </ul>
+    <div class="nav-container">
+      <div class="logo"><img src="/images/logo.png" alt="Logo"></div>
+      <ul>
+        <li><a href="news.html">Watch News</a></li>
+        <li><a href="https://www.watchreport.org/calendar.html">Events Calendar</a></li>
+        <li><a href="https://www.watchreport.org/Horology%20Club%20-%20Bylaws%20-%202025.pdf" target="_blank">Bylaws</a></li>
+        <li><a href="#hero">Join</a></li>
+      </ul>
+    </div>
   </nav>
 
   <!-- Hero -->
