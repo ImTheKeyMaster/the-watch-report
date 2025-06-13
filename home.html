@@ -28,29 +28,79 @@
     }
 
     .hamburger {
-      display: none;
+      width: 30px;
+      height: 24px;
+      position: relative;
+      display: flex;
       flex-direction: column;
-      gap: 5px;
+      justify-content: space-between;
       cursor: pointer;
+      z-index: 1001;
     }
 
     .hamburger span {
-      display: block;
-      width: 25px;
-      height: 3px;
       background: #C4A675;
+      height: 3px;
+      width: 100%;
+      border-radius: 2px;
+      transition: 0.4s;
+      position: absolute;
+    }
+
+    .hamburger span:nth-child(1) {
+      top: 0;
+    }
+
+    .hamburger span:nth-child(2) {
+      top: 10px;
+    }
+
+    .hamburger span:nth-child(3) {
+      top: 20px;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 10px;
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 10px;
     }
 
     ul.nav-links {
-      display: flex;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 20px;
+      border-radius: 5px;
       list-style: none;
-      gap: 20px;
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1000;
+    }
+
+    ul.nav-links.show {
+      display: flex;
+      animation: fadeIn 0.3s ease-in-out;
     }
 
     ul.nav-links li a {
       text-decoration: none;
       color: #C4A675;
       font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Hero Section */
@@ -80,7 +130,6 @@
       z-index: -1;
     }
 
-    /* Logo in upper-left of hero (not fixed) */
     .logo-overlay {
       position: absolute;
       top: 20px;
@@ -119,7 +168,6 @@
       font-weight: bold;
     }
 
-    /* Section Styles */
     section {
       padding: 80px 20px;
       text-align: center;
@@ -165,46 +213,11 @@
       text-align: center;
     }
 
-    /* Mobile Styles */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-      }
-
-      ul.nav-links {
-        display: none;
-        flex-direction: column;
-        background: rgba(0,0,0,0.9);
-        padding: 20px;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        border-radius: 5px;
-      }
-
-      ul.nav-links.show {
-        display: flex;
-      }
-
-      #hero h1 {
-        font-size: 2rem;
-      }
-
-      #hero p {
-        font-size: 1rem;
-      }
-
-      .logo-overlay img {
-        height: 80px;
-      }
-    }
-
-    /* Landscape-specific fix for mobile */
+    /* Landscape-specific mobile fix */
     @media screen and (orientation: landscape) and (max-height: 500px) {
       #hero {
         height: 100vh;
         background-size: 100% 100%;
-        background-position: center center;
       }
 
       .logo-overlay img {
@@ -219,6 +232,7 @@
         font-size: 1rem;
       }
     }
+
   </style>
 </head>
 <body>
@@ -284,6 +298,7 @@
     const navLinks = document.getElementById('navLinks');
 
     hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
       navLinks.classList.toggle('show');
     });
 
@@ -291,6 +306,7 @@
       link.addEventListener('click', function(e) {
         e.preventDefault();
         navLinks.classList.remove('show');
+        hamburger.classList.remove('open');
         document.querySelector(this.getAttribute('href')).scrollIntoView({
           behavior: 'smooth'
         });
