@@ -17,19 +17,6 @@
       overflow-x: hidden;
     }
 
-    /* Logo pinned top-left */
-    .logo-overlay {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 1001;
-    }
-
-    .logo-overlay img {
-      height: 100px;
-      width: auto;
-    }
-
     /* Navigation */
     nav {
       position: fixed;
@@ -66,7 +53,7 @@
       font-weight: bold;
     }
 
-    /* Hero */
+    /* Hero Section */
     #hero {
       position: relative;
       width: 100%;
@@ -76,6 +63,7 @@
       background-position: center;
       background-repeat: no-repeat;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
@@ -90,6 +78,18 @@
       inset: 0;
       background: rgba(0, 0, 0, 0.5);
       z-index: -1;
+    }
+
+    /* Logo that scrolls with hero */
+    .logo-overlay {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 20px;
+    }
+
+    .logo-overlay img {
+      height: 100px;
+      width: auto;
     }
 
     #hero .overlay {
@@ -221,11 +221,6 @@
 </head>
 <body>
 
-  <!-- Logo pinned top-left -->
-  <div class="logo-overlay">
-    <img src="/images/ULHC Logo - Tight Crop.png" alt="Logo">
-  </div>
-
   <!-- Navigation -->
   <nav>
     <div class="hamburger" id="hamburger">
@@ -243,6 +238,9 @@
 
   <!-- Hero -->
   <header id="hero">
+    <div class="logo-overlay">
+      <img src="/images/ULHC Logo - Tight Crop.png" alt="Logo">
+    </div>
     <div class="overlay">
       <h1>The Union League Horology Club</h1>
       <p>Your daily dose of curated watch news, releases, and collector stories.</p>
