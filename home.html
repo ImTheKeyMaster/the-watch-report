@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Union League Horology Club</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -12,113 +11,88 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    body, html {
       height: 100%;
       font-family: 'Inter', sans-serif;
-      background-color: #f9f9f9;
-      color: #222;
-      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 20px 40px;
-      background-color: transparent;
-      transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
-      z-index: 1000;
-    }
-
-    nav.scrolled {
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      padding: 10px 30px;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      height: 3px;
-      width: 25px;
-      background: #222;
-      margin-bottom: 5px;
-      border-radius: 2px;
-    }
-
-    ul.nav-links {
-      display: flex;
-      list-style: none;
-      gap: 40px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #222;
-      font-weight: 500;
-      font-size: 1rem;
-    }
-
-    /* Hero Section */
-    #hero {
-      height: 100vh;
-      background-image: url('/images/Old_Gentry.jpeg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    #hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 0;
-    }
-
+    /* Logo Overlay */
     .logo-overlay {
       position: absolute;
       top: 20px;
       left: 20px;
-      z-index: 2;
+      z-index: 10;
     }
 
     .logo-overlay img {
       height: 80px;
     }
 
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      padding: 20px;
+      z-index: 1000;
+      background: transparent;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #000;
+    }
+
+    ul.nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    ul.nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    /* Hero */
+    #hero {
+      position: relative;
+      height: 100vh;
+      background-image: url('/images/Old_Gentry.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    #hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
     #hero .overlay {
       position: relative;
       z-index: 1;
-      color: #fff;
-      padding: 0 20px;
-      max-width: 800px;
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    #hero .fade-out {
-      opacity: 0;
-      transform: translateY(-30px);
+      padding: 20px;
     }
 
     #hero h1 {
@@ -140,8 +114,9 @@
       font-weight: bold;
     }
 
+    /* Section Styles */
     section {
-      padding: 100px 20px;
+      padding: 80px 20px;
       text-align: center;
     }
 
@@ -155,17 +130,8 @@
       margin: 0 auto 40px;
     }
 
-    .cards {
-      display: block;
-    }
-
-    .card {
-      max-width: 100%;
+    .cards .card {
       padding: 60px 20px;
-      margin: 0 auto;
-      border-radius: 0;
-      box-shadow: none;
-      text-align: center;
     }
 
     .card:nth-child(odd) {
@@ -180,7 +146,6 @@
       max-width: 90%;
       height: auto;
       margin-bottom: 20px;
-      border-radius: 8px;
     }
 
     .card h3 {
@@ -195,23 +160,21 @@
       text-align: center;
     }
 
-    /* Responsive */
+    /* Mobile Styles */
     @media (max-width: 768px) {
-      .menu-toggle {
+      .hamburger {
         display: flex;
       }
 
       ul.nav-links {
+        display: none;
         flex-direction: column;
-        align-items: flex-end;
+        background: rgba(0,0,0,0.9);
+        padding: 20px;
         position: absolute;
         top: 70px;
-        right: 40px;
-        background: white;
-        padding: 20px;
-        display: none;
-        gap: 20px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        right: 20px;
+        border-radius: 5px;
       }
 
       ul.nav-links.show {
@@ -221,52 +184,57 @@
       #hero h1 {
         font-size: 2rem;
       }
-    }
 
-    @media screen and (max-height: 500px) and (orientation: landscape) {
-      #hero {
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
+      #hero p {
+        font-size: 1rem;
       }
 
       .logo-overlay img {
         height: 60px;
       }
+    }
+
+    /* Landscape-specific adjustments */
+    @media (orientation: landscape) and (max-height: 500px) {
+      #hero {
+        background-size: contain;
+      }
 
       #hero h1 {
         font-size: 2rem;
+      }
+
+      .logo-overlay img {
+        height: 50px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Logo overlay -->
+  <!-- Logo Overlay -->
   <div class="logo-overlay">
     <img src="/images/ULHC Logo - Tight Crop.png" alt="Logo">
   </div>
 
   <!-- Navigation -->
-  <nav id="navbar">
-    <div class="nav-container">
-      <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="news.html">Watch News</a></li>
-        <li><a href="https://www.watchreport.org/calendar.html">Events Calendar</a></li>
-        <li><a href="https://www.watchreport.org/Horology%20Club%20-%20Bylaws%20-%202025.pdf" target="_blank">Bylaws</a></li>
-        <li><a href="#hero">Join</a></li>
-      </ul>
+  <nav>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Join</a></li>
+      <li><a href="news.html">Watch News</a></li>
+      <li><a href="https://www.watchreport.org/calendar.html">Events Calendar</a></li>
+      <li><a href="https://www.watchreport.org/Horology%20Club%20-%20Bylaws%20-%202025.pdf" target="_blank">Bylaws</a></li>
+    </ul>
   </nav>
 
   <!-- Hero -->
   <header id="hero">
-    <div class="overlay" id="heroContent">
+    <div class="overlay">
       <h1>The Union League Horology Club</h1>
       <p>Your daily dose of curated watch news, releases, and collector stories.</p>
       <a href="#features" class="cta-button">Upcoming Events</a>
@@ -296,30 +264,16 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Watch Report</h2>
-    <p>Watch Report brings horology to life for enthusiasts, collectors, and the curious. We cover design, heritage, and modern innovation across all tiers of watchmaking — delivering timeless content, daily.</p>
-  </section>
-
   <!-- Footer -->
   <footer>
     &copy; 2025 The Union League Horology Club. All rights reserved.
   </footer>
 
-  <!-- JavaScript -->
   <script>
-    const nav = document.getElementById('navbar');
-    const heroContent = document.getElementById('heroContent');
-    const toggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
 
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-      heroContent.classList.toggle('fade-out', window.scrollY > 100);
-    });
-
-    toggle.addEventListener('click', () => {
+    hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('show');
     });
 
