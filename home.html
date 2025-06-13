@@ -11,7 +11,7 @@
       box-sizing: border-box;
     }
 
-    body, html {
+    html, body {
       height: 100%;
       font-family: 'Inter', sans-serif;
       overflow-x: hidden;
@@ -27,6 +27,7 @@
 
     .logo-overlay img {
       height: 80px;
+      width: auto;
     }
 
     /* Navigation */
@@ -50,7 +51,7 @@
       display: block;
       width: 25px;
       height: 3px;
-      background: #000;
+      background: #fff;
     }
 
     ul.nav-links {
@@ -68,17 +69,18 @@
     /* Hero */
     #hero {
       position: relative;
+      width: 100%;
       height: 100vh;
       background-image: url('/images/Old_Gentry.jpeg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-attachment: fixed;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: white;
+      isolation: isolate;
     }
 
     #hero::before {
@@ -86,7 +88,7 @@
       position: absolute;
       inset: 0;
       background: rgba(0, 0, 0, 0.5);
-      z-index: 0;
+      z-index: -1;
     }
 
     #hero .overlay {
@@ -194,18 +196,24 @@
       }
     }
 
-    /* Landscape-specific adjustments */
-    @media (orientation: landscape) and (max-height: 500px) {
+    /* Landscape-specific fix for mobile */
+    @media screen and (orientation: landscape) and (max-height: 500px) {
       #hero {
-        background-size: contain;
-      }
-
-      #hero h1 {
-        font-size: 2rem;
+        height: 100vh;
+        background-size: 100% 100%;
+        background-position: center center;
       }
 
       .logo-overlay img {
         height: 50px;
+      }
+
+      #hero h1 {
+        font-size: 1.75rem;
+      }
+
+      #hero p {
+        font-size: 1rem;
       }
     }
   </style>
@@ -269,6 +277,7 @@
     &copy; 2025 The Union League Horology Club. All rights reserved.
   </footer>
 
+  <!-- JS -->
   <script>
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
