@@ -25,50 +25,35 @@
       position: fixed;
       top: 0;
       right: 0;
-      width: 100%;
-      padding: 20px 40px;
-      background-color: transparent;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
+      padding: 20px 30px;
       z-index: 1000;
-      display: flex;
-      justify-content: flex-end;
     }
 
-    nav.scrolled {
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .menu-toggle {
+    .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
-      gap: 6px;
     }
 
-    .menu-toggle span {
-      width: 25px;
+    .hamburger span {
       height: 3px;
-      background: #222;
-      border-radius: 2px;
+      width: 25px;
+      background: #000;
+      margin-bottom: 5px;
+      border-radius: 5px;
     }
 
-    ul.nav-links {
+    nav ul {
       display: flex;
+      gap: 30px;
       list-style: none;
-      gap: 40px;
     }
 
-    ul.nav-links li a {
+    nav a {
       text-decoration: none;
       color: #222;
       font-weight: 500;
       font-size: 1rem;
-    }
-
-    .nav-container {
-      display: flex;
-      align-items: center;
     }
 
     /* Hero Section */
@@ -76,7 +61,7 @@
       height: 100vh;
       background-image: url('/images/Old_Gentry.jpeg');
       background-size: cover;
-      background-position: center;
+      background-position: center center;
       background-repeat: no-repeat;
       background-attachment: fixed;
       position: relative;
@@ -84,6 +69,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      overflow: hidden;
     }
 
     #hero::before {
@@ -96,9 +82,9 @@
 
     .logo-overlay {
       position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 1;
+      top: 30px;
+      left: 30px;
+      z-index: 2;
     }
 
     .logo-overlay img {
@@ -132,6 +118,7 @@
       font-weight: bold;
     }
 
+    /* Sections */
     section {
       padding: 100px 20px;
       text-align: center;
@@ -155,7 +142,6 @@
       max-width: 100%;
       padding: 60px 20px;
       margin: 0 auto;
-      border-radius: 0;
       text-align: center;
     }
 
@@ -171,7 +157,6 @@
       max-width: 90%;
       height: auto;
       margin-bottom: 20px;
-      border-radius: 8px;
     }
 
     .card h3 {
@@ -186,37 +171,69 @@
       text-align: center;
     }
 
-    /* Responsive */
+    /* Responsive Styles */
     @media (max-width: 768px) {
-      .menu-toggle {
+      .hamburger {
         display: flex;
       }
 
-      ul.nav-links {
-        display: none;
+      nav ul {
         flex-direction: column;
-        background: rgba(255,255,255,0.95);
+        background-color: rgba(255, 255, 255, 0.95);
         position: absolute;
         top: 70px;
-        right: 40px;
-        gap: 20px;
+        right: 30px;
         padding: 20px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         border-radius: 8px;
-        z-index: 1001;
+        display: none;
       }
 
-      ul.nav-links.active {
+      nav ul.show {
         display: flex;
+      }
+
+      #hero {
+        background-attachment: scroll;
+      }
+
+      .logo-overlay img {
+        height: 80px;
       }
 
       #hero h1 {
         font-size: 2rem;
       }
 
+      #hero p {
+        font-size: 1rem;
+      }
+    }
+
+    @media screen and (max-height: 500px) and (orientation: landscape) {
       #hero {
-        background-attachment: scroll;
-        background-position: center top;
+        background-size: contain;
+        height: 70vh;
+      }
+
+      .logo-overlay img {
+        height: 60px;
+      }
+
+      #hero h1 {
+        font-size: 1.5rem;
+      }
+
+      #hero p {
+        font-size: 1rem;
+      }
+
+      .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+
+      #hero .overlay {
+        padding-top: 60px;
       }
     }
   </style>
@@ -224,13 +241,13 @@
 <body>
 
   <!-- Navigation -->
-  <nav id="navbar">
-    <div class="menu-toggle" id="menuToggle">
+  <nav>
+    <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
       <span></span>
     </div>
-    <ul class="nav-links" id="navLinks">
+    <ul id="navMenu">
       <li><a href="news.html">Watch News</a></li>
       <li><a href="https://www.watchreport.org/calendar.html">Events Calendar</a></li>
       <li><a href="https://www.watchreport.org/Horology%20Club%20-%20Bylaws%20-%202025.pdf" target="_blank">Bylaws</a></li>
@@ -238,7 +255,7 @@
     </ul>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero with Logo Overlay -->
   <header id="hero">
     <div class="logo-overlay">
       <img src="/images/ULHC Logo - Tight Crop.png" alt="Logo">
@@ -284,21 +301,24 @@
     &copy; 2025 The Union League Horology Club. All rights reserved.
   </footer>
 
-  <!-- JS for scroll and menu toggle -->
+  <!-- JavaScript -->
   <script>
-    const nav = document.getElementById('navbar');
     const heroContent = document.getElementById('heroContent');
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
 
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-      heroContent.classList.toggle('fade-out', window.scrollY > 100);
+      const scrollY = window.scrollY;
+      if (scrollY > 100) {
+        heroContent.classList.add('fade-out');
+      } else {
+        heroContent.classList.remove('fade-out');
+      }
     });
 
-    // Toggle hamburger menu
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+    // Hamburger toggle
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
     });
 
     // Smooth scroll
@@ -308,10 +328,9 @@
         document.querySelector(this.getAttribute('href')).scrollIntoView({
           behavior: 'smooth'
         });
-        navLinks.classList.remove('active'); // close menu after click
+        navMenu.classList.remove('show'); // Close on click
       });
     });
   </script>
-
 </body>
 </html>
