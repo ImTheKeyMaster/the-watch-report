@@ -4,65 +4,242 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Union League Horology Club</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      background: url('/images/Background.png') no-repeat center center fixed;
-      background-size: cover;
-      color: #3e3a35;
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
+      color: #222;
+      line-height: 1.6;
     }
-    .vintage-shadow {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background-color: transparent;
+      transition: background 0.3s, box-shadow 0.3s;
+      z-index: 1000;
     }
-    .gold-border {
-      border-color: #d6b24c;
+
+    nav.scrolled {
+      background: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
-    .text-gold {
-      color: #d6b24c;
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 40px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    /* Hero Section */
+    #hero {
+      height: 100vh;
+      background: url('/images/Old_Gentry.jpeg') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    #hero .overlay {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      padding: 0 20px;
+      max-width: 800px;
+    }
+
+    #hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    #hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      background: #006666;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 20px;
+      text-align: center;
+      background: #fff;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    /* Cards */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      max-width: 320px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      padding: 20px;
+      text-align: left;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      #hero h1 {
+        font-size: 2rem;
+      }
+
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
-<body class="font-serif">
+<body>
 
-  <header class="bg-black border-b-4 gold-border px-6 py-10">
-    <div class="max-w-6xl mx-auto flex items-center space-x-6">
-      <div class="flex-shrink-0">
-        <img src="/images/ULHC Logo - Tight Crop.png" alt="ULHC Logo" class="w-28">
-      </div>
-      <div class="text-left">
-        <h1 class="text-5xl font-extrabold tracking-tight text-gold">The Union League Horology Club</h1>
-        <p class="italic text-lg mt-2 text-gray-300">Fostering a community of timepiece connoisseurs</p>
-      </div>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <ul>
+      <li><a href="news.html">Watch News</a></li>
+      <li><a href="https://www.watchreport.org/calendar.html">Events Calendar</a></li>
+      <li><a href="https://www.watchreport.org/Horology%20Club%20-%20Bylaws%20-%202025.pdf" target="_blank">Bylaws</a></li>
+      <li><a href="#hero">Join</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header id="hero">
+    <div class="overlay">
+      <h1>The Union League Horology Club</h1>
+      <p>Your daily dose of curated watch news, releases, and collector stories.</p>
+      <a href="#features" class="cta-button">Explore Features</a>
     </div>
   </header>
 
-  <main class="max-w-5xl mx-auto p-8 space-y-10">
-    <section class="bg-white vintage-shadow p-6 rounded-md border gold-border">
-      <h2 class="text-3xl font-semibold mb-3 text-yellow-800">Mission Statement</h2>
-      <p>The Union League Horology Club is dedicated to fostering a community of watch enthusiasts who appreciate the artistry, craftsmanship, and history of timepieces.</p>
-    </section>
+  <!-- Features Section -->
+  <section id="features">
+    <h2>Latest Features</h2>
+    <p>From legendary timepieces to new releases, discover what’s happening in horology today.</p>
+    <div class="cards">
+      <div class="card">
+        <img src="/images/card1.jpg" alt="Dive Watches">
+        <h3>Top Dive Watches of 2025</h3>
+        <p>Our editors pick the most iconic and reliable dive watches of the year.</p>
+      </div>
+      <div class="card">
+        <img src="/images/card2.jpg" alt="Collector Feature">
+        <h3>Collector’s Vault</h3>
+        <p>Inside the private collection of a renowned vintage Rolex connoisseur.</p>
+      </div>
+      <div class="card">
+        <img src="/images/card3.jpg" alt="Tech Meets Time">
+        <h3>Smart + Swiss</h3>
+        <p>Exploring the merger of AI, data, and Swiss craftsmanship in modern watchmaking.</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="bg-white vintage-shadow p-6 rounded-md border gold-border">
-      <h2 class="text-3xl font-semibold mb-3 text-yellow-800">Our Purpose</h2>
-      <p>To bring together watch enthusiasts to explore the art and craftsmanship of watchmaking, share their collections, and connect with like-minded members in a convivial setting.</p>
-    </section>
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Watch Report</h2>
+    <p>Watch Report brings horology to life for enthusiasts, collectors, and the curious. We cover design, heritage, and modern innovation across all tiers of watchmaking — delivering timeless content, daily.</p>
+  </section>
 
-    <section class="bg-white vintage-shadow p-6 rounded-md border gold-border">
-      <h2 class="text-3xl font-semibold mb-3 text-yellow-800">For Members & Spouses</h2>
-      <p>The club benefits Union League members and spouses by attracting and engaging members with a shared passion for fine timepieces, fostering a sense of community, and enhancing the League’s reputation as a hub for intellectual and cultural enrichment.</p>
-    </section>
-
-    <section class="text-center space-x-6 mt-10">
-      <a href="calendar.html" class="inline-block px-4 py-2 text-white bg-yellow-600 hover:bg-yellow-700 rounded-md transition">Calendar of Events</a>
-      <a href="news.html" class="inline-block px-4 py-2 text-white bg-yellow-600 hover:bg-yellow-700 rounded-md transition">Daily Watch News</a>
-      <a href="https://www.unionleague.org" class="inline-block px-4 py-2 text-white bg-yellow-600 hover:bg-yellow-700 rounded-md transition">Join ULHC</a>
-      <a href="Horology Club - Bylaws - 2025.pdf" class="inline-block px-4 py-2 text-white bg-yellow-600 hover:bg-yellow-700 rounded-md transition">Club Bylaws (PDF)</a>
-    </section>
-  </main>
-
-  <footer class="text-center mt-16 mb-6 text-sm text-gray-500">
+  <!-- Footer -->
+  <footer>
     &copy; 2025 The Union League Horology Club. All rights reserved.
   </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 
 </body>
 </html>
