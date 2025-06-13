@@ -6,7 +6,6 @@
   <title>The Union League Horology Club</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -20,7 +19,6 @@
       line-height: 1.6;
     }
 
-    /* Navigation */
     nav {
       position: fixed;
       top: 0;
@@ -53,7 +51,7 @@
     /* Hero Section */
     #hero {
       height: 100vh;
-      background: url('/images/Old_Gentry.jpeg') center/cover no-repeat;
+      background: url('/images/Old_Gentry.jpeg') center center / cover no-repeat fixed;
       position: relative;
       display: flex;
       align-items: center;
@@ -66,6 +64,7 @@
       position: absolute;
       inset: 0;
       background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
     }
 
     #hero .overlay {
@@ -74,6 +73,16 @@
       color: #fff;
       padding: 0 20px;
       max-width: 800px;
+      animation: fadeUp 1s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     #hero h1 {
@@ -95,7 +104,6 @@
       font-weight: bold;
     }
 
-    /* Sections */
     section {
       padding: 100px 20px;
       text-align: center;
@@ -112,7 +120,6 @@
       margin: 0 auto 40px;
     }
 
-    /* Cards */
     .cards {
       display: flex;
       flex-wrap: wrap;
@@ -145,7 +152,6 @@
       margin-bottom: 10px;
     }
 
-    /* Footer */
     footer {
       background: #222;
       color: white;
@@ -153,7 +159,6 @@
       text-align: center;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
