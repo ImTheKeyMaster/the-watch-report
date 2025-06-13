@@ -71,7 +71,8 @@
   <script>
     const calendarEl = document.getElementById('calendar');
     const monthYearEl = document.getElementById('monthYear');
-    let currentDate = new Date();
+    let today = new Date();
+    let currentDate = new Date(today.getFullYear(), today.getMonth());
     let events = {};
 
     function loadEvents() {
