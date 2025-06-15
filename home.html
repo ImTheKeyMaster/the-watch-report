@@ -47,27 +47,17 @@
       position: absolute;
     }
 
-    .hamburger span:nth-child(1) {
-      top: 0;
-    }
-
-    .hamburger span:nth-child(2) {
-      top: 10px;
-    }
-
-    .hamburger span:nth-child(3) {
-      top: 20px;
-    }
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 10px; }
+    .hamburger span:nth-child(3) { top: 20px; }
 
     .hamburger.open span:nth-child(1) {
       transform: rotate(45deg);
       top: 10px;
     }
-
     .hamburger.open span:nth-child(2) {
       opacity: 0;
     }
-
     .hamburger.open span:nth-child(3) {
       transform: rotate(-45deg);
       top: 10px;
@@ -140,6 +130,7 @@
     .logo-overlay img {
       height: 100px;
       width: auto;
+      transition: height 0.3s ease;
     }
 
     #hero .overlay {
@@ -219,20 +210,28 @@
         height: 100vh;
         background-size: 100% 100%;
       }
-
       .logo-overlay img {
         height: 80px;
       }
-
       #hero h1 {
         font-size: 1.75rem;
       }
-
       #hero p {
         font-size: 1rem;
       }
     }
 
+    /* Desktop-specific overrides */
+    @media screen and (min-width: 1024px) {
+      /* Double the logo height */
+      .logo-overlay img {
+        height: 200px;
+      }
+      /* Offset the nav (and hamburger) inward by hamburger width (30px) */
+      nav {
+        right: 30px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -257,16 +256,15 @@
       <img src="/images/ULHC Logo - Tight Crop.png" alt="Logo">
     </div>
     <div class="overlay">
-      <h1>The Union League</br>Horology Club</h1>
+      <h1>The Union League<br>Horology Club</h1>
       <p>At the Union League Horology Club, we celebrate a shared passion for exceptional watchmaking. Our community brings together enthusiasts—from seasoned collectors to those just beginning their journey—to enjoy and explore the art, science, and history of fine timepieces.</p>
-
       <a href="https://member.unionleague.org/members/member-events/affinity-clubs/the-union-league-horology-club" target="_blank" class="cta-button">Join Now</a>
     </div>
   </header>
 
   <!-- Features Section -->
   <section id="features">
-   <div class="cards">
+    <div class="cards">
       <div class="card">
         <img src="/images/card1.jpg" alt="">
         <h3>Discover Horological Heritage</h3>
@@ -287,10 +285,10 @@
         <h3>Access Unique Opportunities</h3>
         <p>Receive priority invitations to limited-edition previews, private showings, and collaborative projects with renowned watchmakers. Our collective enthusiasm opens doors to experiences and releases not easily available elsewhere.</p>
       </div>
-<div class="card">
+      <div class="card">
         <img src="/images/card5.jpg" alt="">
         <h3>Join Us</h3>
-        <p>As a club within the club, we honor the Union League’s tradition of fellowship and excellence while carving out our own niche for horological exploration. If your heart beats for balance wheels and polished cases, you’ve found your circle. <a href="https://member.unionleague.org/members/member-events/affinity-clubs/the-union-league-horology-club" target="_blank">Join us</a>, and let’s celebrate the precision, passion, and prestige of fine watchmaking—together.</p>
+        <p>If your heart beats for balance wheels and polished cases, you’ve found your circle. <a href="https://member.unionleague.org/members/member-events/affinity-clubs/the-union-league-horology-club" target="_blank">Join us</a>, and let’s celebrate the precision, passion, and prestige of fine watchmaking—together.</p>
       </div>
     </div>
   </section>
