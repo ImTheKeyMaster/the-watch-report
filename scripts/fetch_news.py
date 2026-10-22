@@ -1,10 +1,8 @@
 import feedparser
 import json
-import nltk
-nltk.download('punkt', quiet=True, download_dir='/tmp/nltk_data')
 import os
-os.environ['NLTK_DATA'] = '/tmp/nltk_data'
 from datetime import datetime, timezone
+
 from newspaper import Article, Config
 from slugify import slugify
 import requests
