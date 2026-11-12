@@ -1,17 +1,122 @@
 [
   {
+    "title": "Introducing Hodinkee Magazine Volume 17",
+    "link": "https://www.hodinkee.com/articles/hodinkee-magazine-volume-17",
+    "source": "Hodinkee",
+    "published": "2026-11-12T16:00:00+00:00",
+    "thumbnail": "https://hodinkee.imgix.net/uploads/images/b51c6d79-fb56-4631-bb76-d14fae453d1e/Mag-Vol-17-Article-Hero1.jpg?ixlib=rails-1.1.0&fm=jpg&q=55&auto=format&usm=12&w=1200&h=630&fit=crop"
+  },
+  {
+    "title": "Nomos Glashütte introduces the Club Sport neomatik 34 all silver",
+    "link": "http://www.timeandwatches.com/2026/11/nomos-club-sport-neomatik-34-all-silver-758-758-sb.html",
+    "source": "Time and Watches",
+    "published": "2026-11-12T14:05:11+00:00",
+    "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixGSOD8od1SMuzzpAmVi5x6qaTVDsV8rLWCJXtU6CiBp1-WbOqRe0Cfl4cozIBMTO6IF5yzLK8WlPpuD9tcnouJlU9NsK-XGF0HRAnlLZ-zGVHQ5H26RjHxKD-78UpTyckHLc-PaBKCD5WHMYqg8_C28v229hnGondDFtvQcGqNDytVNkjyNvGUZIpEro/w1200-h630-p-k-no-nu/Nomos%20Club%20Sport%20neomatik%2034%20silver_758_758_SB_007.jpg"
+  },
+  {
+    "title": "First Look: New Racing Livery for the Czapek Faubourg de Cracovie Crossroads Lightning",
+    "link": "https://monochrome-watches.com/czapek-faubourg-de-cracovie-crossroads-lightning-racing-inspired-high-frequency-review-price/",
+    "source": "Monochrome Watches",
+    "published": "2026-11-12T14:01:01+00:00",
+    "thumbnail": "https://monochrome-watches.com/app/uploads/2026/11/Czapek-Faubourg-de-Cracovie-Crossroads-Lightning-Chronograph-review-8.jpg"
+  },
+  {
+    "title": "(VIDEO) The NEW TAG Heuer X Time+Tide Aquaracer Professional 300 collaboration, “Sundowner II”.",
+    "link": "https://www.youtube.com/shorts/RY1cegPo1FM",
+    "source": "Adrian Barker",
+    "published": "2026-11-12T12:15:36+00:00",
+    "thumbnail": "https://i3.ytimg.com/vi/RY1cegPo1FM/hqdefault.jpg"
+  },
+  {
+    "title": "The Vander Avort Lovon: Belgian Quiet Confidence On The Wrist",
+    "link": "https://www.fratellowatches.com/the-vander-avort-lovon-belgian-quiet-confidence-on-the-wrist/",
+    "source": "Fratello Watches – The Magazine Dedicated To Luxury Watches",
+    "published": "2026-11-12T12:00:48+00:00",
+    "thumbnail": "https://www.fratellowatches.com/cdn-cgi/image/anim=false/wp-content/uploads/2026/11/Vander-Avort-Lovon-5.jpg"
+  },
+  {
+    "title": "(VIDEO) Breguet Tradition Seconde Retrograde 7037BA/11/9V6 Watch Review",
+    "link": "https://www.youtube.com/watch?v=4O2wkVrcxQ8",
+    "source": "The 1916 Company Watch Reviews",
+    "published": "2026-11-12T12:00:33+00:00",
+    "thumbnail": "https://i1.ytimg.com/vi/4O2wkVrcxQ8/hqdefault.jpg"
+  },
+  {
+    "title": "Introducing: Indie Watchmaker Mickaël Gaspar Launches the Souscription, His First Wristwatch",
+    "link": "https://monochrome-watches.com/indie-watchmaker-mickael-gaspar-launches-the-souscription-his-first-wristwatch/",
+    "source": "Monochrome Watches",
+    "published": "2026-11-12T11:00:06+00:00",
+    "thumbnail": "https://monochrome-watches.com/app/uploads/2026/11/French-Independent-Watchmaker-Mickael-Gaspar-First-Watch-Souscription-backed-up-by-Ateliers-Associes-1.jpg"
+  },
+  {
+    "title": "Introducing: The 2nd-Gen Trilobe Une Folle Journée",
+    "link": "https://monochrome-watches.com/2026-2nd-gen-trilobe-une-folle-journee-new-case-and-manufacture-x-nihilo-movement-introducing-price/",
+    "source": "Monochrome Watches",
+    "published": "2026-11-12T10:01:28+00:00",
+    "thumbnail": "https://monochrome-watches.com/app/uploads/2026/11/Trilobe-Une-Folle-Journee-2nd-Generation-2026-new-case-in-house-movement-1.jpg"
+  },
+  {
+    "title": "Christopher Ward and Mr. Jones Launch the New C1 Bel Canto Lucia",
+    "link": "https://wornandwound.com/christopher-ward-and-mr-jones-launch-the-new-c1-bel-canto-lucia/",
+    "source": "Worn & Wound",
+    "published": "2026-11-12T10:00:10+00:00",
+    "thumbnail": "https://wornandwound.com/library/uploads/2026/11/2026_11_MJWxCW_BelCanto_005_WR.jpg"
+  },
+  {
+    "title": "(VIDEO) OMEGA Ambassador, Lieke Klaver, Celebrates Young Athletes at Dakar 2026",
+    "link": "https://www.youtube.com/watch?v=LuZenPufllg",
+    "source": "OMEGA",
+    "published": "2026-11-12T09:42:16+00:00",
+    "thumbnail": "https://i1.ytimg.com/vi/LuZenPufllg/hqdefault.jpg"
+  },
+  {
+    "title": "Tudor, Arvid Lindblad y Racing Bulls: ruta ascendente",
+    "link": "https://revolution.watch/mxl/tudor-arvid-lindblad-y-racing-bulls-ruta-ascendente/",
+    "source": "Revolution México y LATAM",
+    "published": "2026-11-12T09:33:12+00:00",
+    "thumbnail": "https://revolution.watch/mxl/wp-content/uploads/2026/11/T26_SPO_VCARB_Pre-Season-Shooting003-1024x587.jpeg"
+  },
+  {
+    "title": "Fratello Talks: Our Watch Pet Peeves Vol. II",
+    "link": "https://www.fratellowatches.com/fratello-talks-our-watch-pet-peeves-vol-ii/",
+    "source": "Fratello Watches – The Magazine Dedicated To Luxury Watches",
+    "published": "2026-11-12T09:00:22+00:00",
+    "thumbnail": "https://www.fratellowatches.com/cdn-cgi/image/anim=false/wp-content/uploads/2024/03/IWC-Ingenieur-2023-9.jpg"
+  },
+  {
+    "title": "Hands-On: The New RZE Seeker — A Solar-Powered Titanium Watch Built To Keep Moving",
+    "link": "https://www.fratellowatches.com/hands-on-new-rze-seeker/",
+    "source": "Fratello Watches – The Magazine Dedicated To Luxury Watches",
+    "published": "2026-11-12T06:00:48+00:00",
+    "thumbnail": "https://www.fratellowatches.com/cdn-cgi/image/anim=false/wp-content/uploads/2026/11/RZE-Seeker-2.jpg"
+  },
+  {
+    "title": "Introducing The Petermann Bédat Reference 2914 Monopusher Chronograph",
+    "link": "https://www.hodinkee.com/articles/introducing-petermann-bedat-2914-chronograph",
+    "source": "Hodinkee",
+    "published": "2026-11-12T02:00:00+00:00",
+    "thumbnail": "https://hodinkee.imgix.net/uploads/articles/060f1ad8-0c8c-41b6-83b6-92962bfd2e72/DSC02405.jpg?ixlib=rails-1.1.0&fm=jpg&q=55&auto=format&usm=12&w=1200&h=630&fit=crop"
+  },
+  {
+    "title": "(VIDEO) Wrist Check Wednesday In Geneva! | Tim Jeffreys At The Concours d’Élégance Horlogère",
+    "link": "https://www.youtube.com/watch?v=Z9BpQ77u1Zo",
+    "source": "Hodinkee",
+    "published": "2026-11-11T22:00:31+00:00",
+    "thumbnail": "https://i3.ytimg.com/vi/Z9BpQ77u1Zo/hqdefault.jpg"
+  },
+  {
+    "title": "The Seiko H601-5480 “Upside-Down Arnie:” A Twist on the Legendary Silver Screen Seiko",
+    "link": "https://wornandwound.com/the-seiko-h601-5480-upside-down-arnie-a-twist-on-the-legendary-silver-screen-seiko/",
+    "source": "Worn & Wound",
+    "published": "2026-11-11T21:00:08+00:00",
+    "thumbnail": "https://wornandwound.com/library/uploads/2026/11/Seiko-Upside-Down-Arnie-3.jpg"
+  },
+  {
     "title": "TAG Heuer and Time+Tide Reunite for the Aquaracer Sundowner II",
     "link": "https://wornandwound.com/tag-heuer-and-timetide-reunite-for-the-aquaracer-sundowner-ii/",
     "source": "Worn & Wound",
     "published": "2026-11-11T19:00:48+00:00",
     "thumbnail": "https://wornandwound.com/library/uploads/2026/11/TAG-x-Time-Tide-Sundowner-II-51.jpg"
-  },
-  {
-    "title": "Introducing: The TAG Heuer Aquaracer Professional 300 × Time+Tide Sundowner II",
-    "link": "https://www.fratellowatches.com/tag-heuer-aquaracer-professional-300-x-timetide-sundowner-ii/",
-    "source": "Fratello Watches – The Magazine Dedicated To Luxury Watches",
-    "published": "2026-11-11T19:00:02+00:00",
-    "thumbnail": "https://www.fratellowatches.com/cdn-cgi/image/anim=false/wp-content/uploads/2026/11/TAG-Heuer-Sundowner-II-Time-Tide-2026-.jpg"
   },
   {
     "title": "Introducing The TAG Heuer Aquaracer Professional 300 x Time+Tide 'Sundowner II'",
@@ -21,60 +126,11 @@
     "thumbnail": "https://hodinkee.imgix.net/uploads/articles/2076ff2e-42d9-4359-93d3-1d12648c0d7a/timetidesuncdownder2heading.jpg?ixlib=rails-1.1.0&fm=jpg&q=55&auto=format&usm=12&w=1200&h=630&fit=crop"
   },
   {
-    "title": "Introducing: The Moritz Grossmann Benu 1878, Tribute to the German School of Watchmaking",
-    "link": "https://monochrome-watches.com/moritz-grossmann-celebrates-its-founders-200th-birthday-and-the-18th-anniversary-of-the-brands-revival-with-the-benu-1878-introducing-price/",
-    "source": "Monochrome Watches",
-    "published": "2026-11-11T17:10:33+00:00",
-    "thumbnail": "https://monochrome-watches.com/app/uploads/2026/11/Moritz-Grossmann-Benu-1878-Tribute-to-German-School-of-Watchmaking-engraved-German-Silver-Dial-6.jpg"
-  },
-  {
-    "title": "First Look: The Maen Grand Tonneau Jump Hour, now Part of the Permanent Collection",
-    "link": "https://monochrome-watches.com/maen-grand-tonneau-jump-hour-permanent-collection-accessible-automatic-jumping-hour-watch-review-price/",
-    "source": "Monochrome Watches",
-    "published": "2026-11-11T15:01:19+00:00",
-    "thumbnail": "https://monochrome-watches.com/app/uploads/2026/11/Maen-Grand-Tonneau-Jump-Hour-Permanent-Collection-review-8.jpg"
-  },
-  {
-    "title": "The Business of Watches Podcast The GPGH Jury And Award Winners With Senior Editor Mark Kauzlarich",
-    "link": "https://www.hodinkee.com/articles/the-gpgh-jury-and-award-winners-with-senior-editor-mark-kauzlarich",
-    "source": "Hodinkee",
-    "published": "2026-11-11T15:00:00+00:00",
-    "thumbnail": "https://hodinkee.imgix.net/uploads/images/5026423f-8e6d-4710-b4b5-6238ba5d4fcd/BusinessOfWatcheshero01.jpg?ixlib=rails-1.1.0&fm=jpg&q=55&auto=format&usm=12&w=1200&h=630&fit=crop"
-  },
-  {
-    "title": "Why The New Garrick S8 Might Be The Brand’s Best Watch Yet",
-    "link": "https://www.fratellowatches.com/new-garrick-s8/",
-    "source": "Fratello Watches – The Magazine Dedicated To Luxury Watches",
-    "published": "2026-11-11T14:00:49+00:00",
-    "thumbnail": "https://www.fratellowatches.com/cdn-cgi/image/anim=false/wp-content/uploads/2026/11/Garrick-S8-23.jpg"
-  },
-  {
     "title": "Panerai presents the Submersible Marina Militare GMT PAM01758 and Destro PAM01757",
     "link": "http://www.timeandwatches.com/2026/11/panerai-submersible-marina-militare-destro-pam01757-gmt-pam01758.html",
     "source": "Time and Watches",
     "published": "2026-11-11T12:34:12+00:00",
     "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqUF2YctdIwUkItiGG2dA6TF6px11MDH8tkmB14nn0aqeqmPgQktbu9E_vrwLacm46KXs_SXVS9VWgCFJtb1NkKMzheDKwXK5YfzKZYDXuAN3pYV2E_PRcUZ6lgaVLutGTjfSIogCzgutNttFTSx198X1p7itoqIzlKo1FVAwseY2wp1El93wEOrZ-MmM/w1200-h630-p-k-no-nu/Panerai%20Submersible%20Marina%20Militare_Destro%20PAM01757_GMT%20PAM01758_001.jpg"
-  },
-  {
-    "title": "First Look: The Accessible Tangens Komposition Automatic Storm Collection",
-    "link": "https://monochrome-watches.com/the-accessible-tangens-komposition-automatic-storm-collection-in-dusty-blue-dusty-purple-first-look-price/",
-    "source": "Monochrome Watches",
-    "published": "2026-11-11T12:00:31+00:00",
-    "thumbnail": "https://monochrome-watches.com/app/uploads/2026/11/Tangens-Komposition-Automatic-Storm-Capsule-Collection-Dusty-Blue-Dusty-Purple-accessible-steel-sports-watch-6.jpg"
-  },
-  {
-    "title": "(VIDEO) Breguet Classique 3137 Moonphase 3137BA/11/986 Watch Review",
-    "link": "https://www.youtube.com/watch?v=iLUkMIt7u3k",
-    "source": "The 1916 Company Watch Reviews",
-    "published": "2026-11-11T12:00:27+00:00",
-    "thumbnail": "https://i2.ytimg.com/vi/iLUkMIt7u3k/hqdefault.jpg"
-  },
-  {
-    "title": "Seiko Astron GPS Solar SAST001: My Least Worn Watch And Why I Still Own It",
-    "link": "https://www.fratellowatches.com/seiko-astron-gps-solar-sast001/",
-    "source": "Fratello Watches – The Magazine Dedicated To Luxury Watches",
-    "published": "2026-11-11T10:00:52+00:00",
-    "thumbnail": "https://www.fratellowatches.com/cdn-cgi/image/anim=false/wp-content/uploads/2026/11/Seiko-Astron-First-Generation-SAST001-12.jpg"
   },
   {
     "title": "Konstantin Chaykin: cómo las caminatas espaciales dieron forma al SC02C",
@@ -84,25 +140,11 @@
     "thumbnail": "https://revolution.watch/mxl/wp-content/uploads/2026/11/Revolution-Banner-49-1024x396.webp"
   },
   {
-    "title": "Introducing The Krayon Anywhere Magnolia (Live Pics)",
-    "link": "https://www.hodinkee.com/articles/krayon-magnolia",
-    "source": "Hodinkee",
-    "published": "2026-11-11T01:00:00+00:00",
-    "thumbnail": "https://hodinkee.imgix.net/uploads/articles/ef1ee117-5559-477b-99c3-47bc801b9caa/tan2h-krayon-anywhere-magnolia-00253-header.jpg?ixlib=rails-1.1.0&fm=jpg&q=55&auto=format&usm=12&w=1200&h=630&fit=crop"
-  },
-  {
-    "title": "Horologically Unique Reintroduces a Cult Classic with the New HU-02",
-    "link": "https://wornandwound.com/horologically-unique-reintroduces-a-cult-classic-with-the-new-hu-02/",
-    "source": "Worn & Wound",
-    "published": "2026-11-10T20:00:08+00:00",
-    "thumbnail": "https://wornandwound.com/library/uploads/2026/11/Horlogically-Unique-02-4.jpg"
-  },
-  {
-    "title": "Nomos Introduces a New All Silver Version of the Club Sport Neomatik 34",
-    "link": "https://wornandwound.com/nomos-introduces-a-new-all-silver-version-of-the-club-sport-neomatik-34/",
-    "source": "Worn & Wound",
-    "published": "2026-11-10T17:00:37+00:00",
-    "thumbnail": "https://wornandwound.com/library/uploads/2026/11/Nomos-Club-Sport-Silver-4.jpg"
+    "title": "MB&F LM101 Gabriel Colliard: three miniature worlds in cloisonné enamel",
+    "link": "http://www.timeandwatches.com/2026/11/mbf-lm101-gabriel-colliard-cloisonne-enamel.html",
+    "source": "Time and Watches",
+    "published": "2026-11-10T13:00:04+00:00",
+    "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPCnI0QKYdZ4R8I9MFhvKZ9vPBDLFp9hlk9RmC-IoqCEtkyuqeiV35eStz8FWWJTMa1SPD8z2bcFUqY5ofQx3OzqQ4l2ELRf04ahW9dScRnYHVIeyJFGS52KoNGtIRo25MPtm16Sbp9S-iKf1ArrfnXZYR6AjawKlVeJ1Eav2uCWSm8A434h0CYgbeJUs/w1200-h630-p-k-no-nu/MBandF_LM101_Gabriel_Colliard_001.jpg"
   },
   {
     "title": "Hublot Big Bang Soldier All Black",
@@ -110,27 +152,6 @@
     "source": "Revolution México y LATAM",
     "published": "2026-11-10T09:24:28+00:00",
     "thumbnail": "https://revolution.watch/mxl/wp-content/uploads/2026/11/441.CI_.1140.NR_.HBL26-PR-HR-B-1024x724.jpeg"
-  },
-  {
-    "title": "(VIDEO) I need a new watch - Rolex Explorer / Omega Aqua Terra",
-    "link": "https://www.youtube.com/watch?v=sTBBjW6WGZI",
-    "source": "Adrian Barker",
-    "published": "2026-11-09T18:56:50+00:00",
-    "thumbnail": "https://i4.ytimg.com/vi/sTBBjW6WGZI/hqdefault.jpg"
-  },
-  {
-    "title": "GPHG 2026: aquí los ganadores de la noche relojera más especial",
-    "link": "https://revolution.watch/mxl/gphg-2026-aqui-los-ganadores-de-la-noche-relojera-mas-especial/",
-    "source": "Revolution México y LATAM",
-    "published": "2026-11-09T09:50:04+00:00",
-    "thumbnail": "https://revolution.watch/mxl/wp-content/uploads/2026/11/GPHG2026-Web-Banner-v2-1024x396.jpg"
-  },
-  {
-    "title": "Hands-on review: Omega Seamaster Diver 300M James Bond and Spectre editions",
-    "link": "http://www.timeandwatches.com/2026/11/omega-seamaster-diver-300m-bond-spectre-review.html",
-    "source": "Time and Watches",
-    "published": "2026-11-09T07:32:48+00:00",
-    "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2KN_9NljhukeO-1TUYmZSi4m0Oc9JHvAmy7M_X2Jtq3zHhyphenhyphenJwct48Z_DVv29qkTwrtKFR491Ma33fg5jqsXdTE_yzJAUZW4caV-CcFTW7dj4VvxWsqTMOe2trE1JD-plAL3ZKnm4QaefiLF3stmilGnopgc8k6EL2GNjOWONMwjO4DPZ7IQjGUEABj0E/w1200-h630-p-k-no-nu/Omega%20Seamaster%20Diver%20300M%20Bond%20Spectre_001.jpg"
   },
   {
     "title": "(VIDEO) This Under-Appreciated Speedmaster Has More Credibility Than You Think - Speedmaster Pilot Review",
@@ -145,20 +166,6 @@
     "source": "Andrew Morgan Watches",
     "published": "2026-11-08T13:30:04+00:00",
     "thumbnail": "https://i2.ytimg.com/vi/-NHTMZA398w/hqdefault.jpg"
-  },
-  {
-    "title": "(VIDEO) OMEGA's Chad le Clos and Lieke Klaver",
-    "link": "https://www.youtube.com/shorts/ssEU2UK4gh8",
-    "source": "OMEGA",
-    "published": "2026-11-08T11:00:31+00:00",
-    "thumbnail": "https://i4.ytimg.com/vi/ssEU2UK4gh8/hqdefault.jpg"
-  },
-  {
-    "title": "(VIDEO) It's Wrist Check Wednesday With Tim Jeffreys And Special Guests!",
-    "link": "https://www.youtube.com/shorts/TwZDobQ3T98",
-    "source": "Hodinkee",
-    "published": "2026-11-04T23:43:04+00:00",
-    "thumbnail": "https://i1.ytimg.com/vi/TwZDobQ3T98/hqdefault.jpg"
   },
   {
     "title": "(VIDEO) Credor: The Creativity of Artisans (With Special Guest)",
