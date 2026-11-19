@@ -1,31 +1,94 @@
 [
   {
+    "title": "Auctions Three Trends To Follow And Six Watches I'd Buy (If I Could) At Phillips And Christie's Hong Kong Auctions",
+    "link": "https://www.hodinkee.com/articles/three-things-to-watch-at-phillips-and-christies-hong-kong-auction",
+    "source": "Hodinkee",
+    "published": "2026-11-19T16:00:00+00:00",
+    "thumbnail": "https://hodinkee.imgix.net/uploads/articles/b37822e9-1ffc-4712-b8db-d843e54365ce/Untitled-1.jpg?ixlib=rails-1.1.0&fm=jpg&q=55&auto=format&usm=12&w=1200&h=630&fit=crop"
+  },
+  {
+    "title": "Oris Introduces the Doraemon Big Crown Pointer Date",
+    "link": "https://wornandwound.com/oris-introduces-the-doraemon-big-crown-pointer-date/",
+    "source": "Worn & Wound",
+    "published": "2026-11-19T15:00:14+00:00",
+    "thumbnail": "https://wornandwound.com/library/uploads/2026/11/Oris-Doraemon-3.jpg"
+  },
+  {
+    "title": "Introducing The Oris Doraemon Limited Edition",
+    "link": "https://www.hodinkee.com/articles/oris-doraemon",
+    "source": "Hodinkee",
+    "published": "2026-11-19T14:00:00+00:00",
+    "thumbnail": "https://hodinkee.imgix.net/uploads/articles/aade4d4e-d02b-4348-b2d4-dd8d4f97840d/oris-doraemon-header.jpg?ixlib=rails-1.1.0&fm=jpg&q=55&auto=format&usm=12&w=1200&h=630&fit=crop"
+  },
+  {
+    "title": "Introducing: The Norqain Independence Skeleton 40mm Arctic Blue, with Updated Steel Bracelet",
+    "link": "https://monochrome-watches.com/the-norqain-independence-skeleton-40mm-arctic-blue-with-updated-steel-bracelet/",
+    "source": "Monochrome Watches",
+    "published": "2026-11-19T13:01:15+00:00",
+    "thumbnail": "https://monochrome-watches.com/app/uploads/2026/11/Norqain-Independence-Skeleton-40mm-Arctic-Blue-New-Steel-Bracelet-1.jpg"
+  },
+  {
+    "title": "Introducing The Roger W. Smith Series 7 Annual Calendar Tourbillon",
+    "link": "https://www.hodinkee.com/articles/the-roger-w-smith-series-7-annual-calendar-tourbillon",
+    "source": "Hodinkee",
+    "published": "2026-11-19T12:41:06+00:00",
+    "thumbnail": "https://hodinkee.imgix.net/uploads/images/8ca685ea-dfd0-4836-b76f-604c15a4f586/RWSSeriesSevenFront.jpg?ixlib=rails-1.1.0&fm=jpg&q=55&auto=format&usm=12&w=1200&h=630&fit=crop"
+  },
+  {
+    "title": "Merci Instruments Introduces The Super Collection — Four Watches Inspired By 1970s Architecture And Design",
+    "link": "https://www.fratellowatches.com/new-merci-instruments-super-collection/",
+    "source": "Fratello Watches – The Magazine Dedicated To Luxury Watches",
+    "published": "2026-11-19T12:00:43+00:00",
+    "thumbnail": "https://www.fratellowatches.com/cdn-cgi/image/anim=false/wp-content/uploads/2026/11/Merci-Instruments-Super-collection-15.jpg"
+  },
+  {
+    "title": "(VIDEO) Ulysse Nardin Marine Chronograph Annual Calendar Enamel Dial 1533-150/E0 Watch Review",
+    "link": "https://www.youtube.com/watch?v=n4RknhHKluw",
+    "source": "The 1916 Company Watch Reviews",
+    "published": "2026-11-19T12:00:26+00:00",
+    "thumbnail": "https://i3.ytimg.com/vi/n4RknhHKluw/hqdefault.jpg"
+  },
+  {
+    "title": "First Look: Nomos Goes Black-and-Gold with the new Noir Series",
+    "link": "https://monochrome-watches.com/nomos-noir-series-tangente-ludwig-tertra-hand-wound-steel-or-gold-review-price/",
+    "source": "Monochrome Watches",
+    "published": "2026-11-19T11:30:43+00:00",
+    "thumbnail": "https://monochrome-watches.com/app/uploads/2026/11/nomos-noir-series-tangente-ludwig-tertra-hand-wound-steel-or-gold-review-13.jpg"
+  },
+  {
+    "title": "Introducing: The Chronoswiss ReSec Final Edition, The Last of Its Kind",
+    "link": "https://monochrome-watches.com/introducing-chronoswiss-resec-final-edition-last-of-modern-regulator-guilloche-dial-price/",
+    "source": "Monochrome Watches",
+    "published": "2026-11-19T11:01:41+00:00",
+    "thumbnail": "https://monochrome-watches.com/app/uploads/2026/11/Chronoswiss-ReSec-Final-Edition-4.jpg"
+  },
+  {
+    "title": "The New HTD Aquatìc GMT Series Displays Great Italian Charm",
+    "link": "https://www.fratellowatches.com/new-htd-aquatic-gmt-series/",
+    "source": "Fratello Watches – The Magazine Dedicated To Luxury Watches",
+    "published": "2026-11-19T10:00:18+00:00",
+    "thumbnail": "https://www.fratellowatches.com/cdn-cgi/image/anim=false/wp-content/uploads/2026/11/HTD-Aquatic-GMT-2.jpg"
+  },
+  {
+    "title": "Fratello Talks: Bringing Gallet Back To Life With Erwan Rossignol",
+    "link": "https://www.fratellowatches.com/fratello-talks-bringing-gallet-back-to-life-with-erwan-rossignol/",
+    "source": "Fratello Watches – The Magazine Dedicated To Luxury Watches",
+    "published": "2026-11-19T09:30:52+00:00",
+    "thumbnail": "https://www.fratellowatches.com/cdn-cgi/image/anim=false/wp-content/uploads/2026/11/Fratello-x-Gallet-Event-The-Hague-4.jpg"
+  },
+  {
+    "title": "Arnold & Son renueva el Time Pyramid con ágata y opciones en oro y platino",
+    "link": "https://revolution.watch/mxl/arnold-son-renueva-el-time-pyramid-con-agata-y-opciones-en-oro-y-platino/",
+    "source": "Revolution México y LATAM",
+    "published": "2026-11-19T09:09:05+00:00",
+    "thumbnail": "https://revolution.watch/mxl/wp-content/uploads/2026/11/Time-Pyramid-PT-Agate_3-4-1024x1019.jpeg"
+  },
+  {
     "title": "Jaeger-LeCoultre Debuts their Eighth “Collectibles” Capsule, a Tribute to “LeCoultre” Stamped Watches Assembled in America",
     "link": "https://wornandwound.com/jaeger-lecoultre-debuts-their-eighth-collectibles-capsule-a-tribute-to-lecoultre-stamped-watches-assembled-in-america/",
     "source": "Worn & Wound",
     "published": "2026-11-18T20:00:58+00:00",
     "thumbnail": "https://wornandwound.com/library/uploads/2026/11/JLC-Collectibles-8-47.jpg"
-  },
-  {
-    "title": "Introducing Horologically Unique Revives The 'Chronoscope' Jump Hour With The HU-02",
-    "link": "https://www.hodinkee.com/articles/introducing-horologically-unique-hu-02",
-    "source": "Hodinkee",
-    "published": "2026-11-18T20:00:00+00:00",
-    "thumbnail": "https://hodinkee.imgix.net/uploads/images/a478169b-fcf8-466c-8aef-2ab3f17135cd/HU-02_GROUP_02_HR.jpg?ixlib=rails-1.1.0&fm=jpg&q=55&auto=format&usm=12&w=1200&h=630&fit=crop"
-  },
-  {
-    "title": "Introducing Hublot Brings Denim Back To The Big Bang Collection",
-    "link": "https://www.hodinkee.com/articles/hublot-brings-denim-to-the-big-bang-collection",
-    "source": "Hodinkee",
-    "published": "2026-11-18T18:00:00+00:00",
-    "thumbnail": "https://hodinkee.imgix.net/uploads/articles/e83764e6-6f37-401d-88f8-ea96951e0cba/Hublot-Big-Bang-HERO.jpg?ixlib=rails-1.1.0&fm=jpg&q=55&auto=format&usm=12&w=1200&h=630&fit=crop"
-  },
-  {
-    "title": "Introducing: A Seconds Hand That Slows, Stops, Runs Backwards, Races Fast, but is Never Late... by Algorithme du Temps",
-    "link": "https://monochrome-watches.com/algorithme-du-temps-reveries-des-secondes-watch-indie-watchmaking-seconds-hand-non-linear-motion-introducing-price/",
-    "source": "Monochrome Watches",
-    "published": "2026-11-18T17:30:53+00:00",
-    "thumbnail": "https://monochrome-watches.com/app/uploads/2026/11/Algorithme-du-Temps-Reveries-des-Secondes-Watch-non-linear-seconds-hand-that-slows-stops-runs-backwards-7.jpg"
   },
   {
     "title": "Hands On: the O&HoraPictor Duet Submarine Canyon",
@@ -42,20 +105,6 @@
     "thumbnail": "https://pic.watchclicker.com/wp-content/uploads/2026/11/18103543/farer-hewlett-ii-cover.jpg"
   },
   {
-    "title": "Panerai: Nothing More. Nothing Less.",
-    "link": "https://www.hodinkee.com/articles/nothing-more-nothing-less",
-    "source": "Hodinkee",
-    "published": "2026-11-18T16:00:02+00:00",
-    "thumbnail": "https://framerusercontent.com/assets/S0JplnTh62Aq01aZBIstpF6fJ5Q.jpg"
-  },
-  {
-    "title": "Introducing: Stowa Brings Back the Full-Lume Dial with Four New Marine Models",
-    "link": "https://monochrome-watches.com/stowa-marine-classic-and-marine-bronze-vintage-arabic-blue-lume-luminous-dial-introducing-price/",
-    "source": "Monochrome Watches",
-    "published": "2026-11-18T14:01:19+00:00",
-    "thumbnail": "https://monochrome-watches.com/app/uploads/2026/11/Stowa-Marine-Classic-and-Marine-Bronze-Vintage-Arabic-Blue-Lume-Classic-Marine-Instruments-with-Fully-Luminous-Dials-1.jpg"
-  },
-  {
     "title": "(VIDEO) ROLEX vs AP - “low budget v*****”",
     "link": "https://www.youtube.com/shorts/cz8dWNTUIl4",
     "source": "Adrian Barker",
@@ -63,53 +112,11 @@
     "thumbnail": "https://i4.ytimg.com/vi/cz8dWNTUIl4/hqdefault.jpg"
   },
   {
-    "title": "(VIDEO) Ulysse Nardin Classico Dual Time Enamel Dial 3243-132/E0 Watch review",
-    "link": "https://www.youtube.com/watch?v=ZFRA5Br4sMU",
-    "source": "The 1916 Company Watch Reviews",
-    "published": "2026-11-18T12:00:39+00:00",
-    "thumbnail": "https://i3.ytimg.com/vi/ZFRA5Br4sMU/hqdefault.jpg"
-  },
-  {
-    "title": "Hands-On With The Peren One — The Brand’s First Chronograph And Integrated-Bracelet Watch",
-    "link": "https://www.fratellowatches.com/hands-on-peren-one/",
-    "source": "Fratello Watches – The Magazine Dedicated To Luxury Watches",
-    "published": "2026-11-18T12:00:31+00:00",
-    "thumbnail": "https://www.fratellowatches.com/cdn-cgi/image/anim=false/wp-content/uploads/2026/11/Peren-Chronograph-1.jpg"
-  },
-  {
-    "title": "Introducing: Bangalore Watch Company Epoch, a Hand-Wound Dress Watch from India",
-    "link": "https://monochrome-watches.com/bangalore-watch-company-epoch-hand-wound-dress-watch-from-india-introducing-price/",
-    "source": "Monochrome Watches",
-    "published": "2026-11-18T10:30:48+00:00",
-    "thumbnail": "https://monochrome-watches.com/app/uploads/2026/11/Bangalore-Watch-Company-Epoch-Collection-Dress-Watch-From-India-1.jpg"
-  },
-  {
     "title": "Armin Strom Dual Time GMT Resonance Meteorite: del espacio exterior en edición limitada",
     "link": "https://revolution.watch/mxl/armin-strom-dual-time-gmt-resonance-meteorite-del-espacio-exterior-en-edicion-limitada/",
     "source": "Revolution México y LATAM",
     "published": "2026-11-18T09:52:56+00:00",
     "thumbnail": "https://revolution.watch/mxl/wp-content/uploads/2026/11/LR_AS_Dual_Time_GMT_Resonance_Mna_Ed_Meteorite_beauty01-1024x604.jpeg"
-  },
-  {
-    "title": "Shadow Icons: The Underappreciated References — Vacheron Constantin Overseas",
-    "link": "https://www.fratellowatches.com/shadow-icons-the-underappreciated-references-vacheron-constantin-overseas/",
-    "source": "Fratello Watches – The Magazine Dedicated To Luxury Watches",
-    "published": "2026-11-18T08:00:47+00:00",
-    "thumbnail": "https://www.fratellowatches.com/cdn-cgi/image/anim=false/wp-content/uploads/2026/04/Vacheron_Constantin_Overseas_Self-Winding_Ultra-Thin_2550AVacheron_Constantin_Overseas_Self-Winding_Ultra-Thin_2550TOP5Jorg-7.jpg"
-  },
-  {
-    "title": "Introducing The ArtyA Purity Curvy HMS Sapphire Sport Edition: The Bird-Of Paradise Watch",
-    "link": "https://www.fratellowatches.com/introducing-the-artya-purity-curvy-hms-sapphire-sport-edition/",
-    "source": "Fratello Watches – The Magazine Dedicated To Luxury Watches",
-    "published": "2026-11-18T06:00:02+00:00",
-    "thumbnail": "https://www.fratellowatches.com/cdn-cgi/image/anim=false/wp-content/uploads/2026/11/Collage-cover-ArtyA.jpg"
-  },
-  {
-    "title": "Timex Launches New Divers in the Deepwater Collection",
-    "link": "https://wornandwound.com/timex-launches-new-divers-in-the-deepwater-collection/",
-    "source": "Worn & Wound",
-    "published": "2026-11-17T20:00:41+00:00",
-    "thumbnail": "https://wornandwound.com/library/uploads/2026/11/Deepwater-Arctic-49.jpg"
   },
   {
     "title": "(VIDEO) Talking Watches With Kevin Love, NBA Champion And Watch Collector",
@@ -124,13 +131,6 @@
     "source": "Revolution México y LATAM",
     "published": "2026-11-17T09:04:50+00:00",
     "thumbnail": "https://revolution.watch/mxl/wp-content/uploads/2026/11/BREGUET_CLASSIQUE_SOUSCRIPTION_2026PT_LIFESTYLE_HERO_85x63.5cm_300dpi_sRGB_MASTER_HR-1024x768.jpg"
-  },
-  {
-    "title": "Longines Spirit Pilot Flyback: el tiempo entre dos rumbos",
-    "link": "https://revolution.watch/mxl/longines-spirit-pilot-flyback-el-tiempo-entre-dos-rumbos/",
-    "source": "Revolution México y LATAM",
-    "published": "2026-11-16T09:20:33+00:00",
-    "thumbnail": "https://revolution.watch/mxl/wp-content/uploads/2026/11/longines-spirit-1024x724.png"
   },
   {
     "title": "(VIDEO) A Brilliant Moonphase Watch I Didn’t See Coming - TAG Heuer Carrera Astronomer",
